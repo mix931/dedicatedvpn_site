@@ -16,25 +16,31 @@ body {
 
 /* Шапка сайта (header) */
 header {
-  background-color: #3498db; /* Сочный синий (из Flat UI палитры) */
+  background-color: #3498db; /* Синий фон */
   padding: 1.5em;
 }
 
-header h1 {
-  color: #ffffff;
-  font-size: 1.8em;
-  line-height: 1.6; /* Межстрочный интервал */
+.header-content {
+  text-align: center;
 }
 
-header p {
-  color: #ecf0f1; /* Светлый оттенок */
-  font-size: 1em;
+.header-content h1 {
+  color: #ffffff;
+  font-size: 1.8em;
   line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+.header-subtitle {
+  color: #ffffff; /* Белый текст */
+  font-size: 1.1em;
+  font-weight: normal;
+  margin-top: 5px;
 }
 
 /* Навигационное меню (nav) */
 nav {
-  background-color: #2980b9; /* Чуть более тёмно-синий */
+  background-color: #2980b9; /* Темно-синий */
   padding: 0.7em 1em;
 }
 
