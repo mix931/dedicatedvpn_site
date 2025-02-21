@@ -1,6 +1,4 @@
-/* style.css */
-
-/* Сброс некоторых базовых отступов */
+/* Сброс базовых отступов и рамок */
 * {
   margin: 0;
   padding: 0;
@@ -11,56 +9,61 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f8ff; /* Нежный бело-голубой оттенок */
-  color: #2c3e50;           /* Тёмно-синий текст */
+  color: #2c3e50; /* Тёмно-синий текст */
+  text-align: center;
 }
 
 /* Шапка сайта (header) */
 header {
   background-color: #3498db; /* Сочный синий (из Flat UI палитры) */
-  padding: 1em;
+  padding: 1.5em;
 }
 
 header h1 {
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: 1.8em;
+}
+
+header p {
+  color: #ecf0f1; /* Светлый оттенок */
+  font-size: 1em;
 }
 
 /* Навигационное меню (nav) */
 nav {
   background-color: #2980b9; /* Чуть более тёмно-синий */
-  padding: 0.5em 1em;
+  padding: 0.7em 1em;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
-}
-
-nav ul li {
-  /* Пробелы между пунктами */
+  justify-content: center;
+  gap: 1.2em;
 }
 
 nav ul li a {
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
+  padding: 0.5em;
+  transition: color 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
   text-decoration: underline;
+  color: #d0e3f0;
 }
 
 /* Основная часть (main) */
 main {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: #ffffff;
   padding: 2em;
-  margin-top: 1em; /* отступ сверху */
-  margin-bottom: 1em; /* отступ снизу */
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Заголовки */
@@ -69,49 +72,120 @@ h1, h2 {
   margin-bottom: 0.5em;
 }
 
-/* Ссылки */
-a {
-  color: #2980b9;
-  text-decoration: none;
+h2 {
+  font-size: 1.5em;
 }
 
-a:hover {
-  text-decoration: underline;
+/* Блок с кнопками */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Увеличенный промежуток между кнопками */
+  margin-top: 25px;
 }
 
-/* Списки */
-ul {
-  margin-left: 1.5em;
-  margin-bottom: 1em;
-}
-
-/* Футер (footer) */
-footer {
-  text-align: center;
-  padding: 1em;
-  background-color: #3498db;
-  color: #ffffff;
-}
-
-/* Дополнительно, если нужен button-ссылки */
+/* Кнопки */
 .button {
   display: inline-block;
-  margin-top: 1em;
-  padding: 0.75em 1.5em;
+  padding: 15px 30px;
   background-color: #2980b9;
-  color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
   font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
 .button:hover {
   background-color: #1c6fa1;
+  transform: scale(1.05);
 }
 
-/* Адаптивность для мобильных */
-@media (max-width: 600px) {
+/* Блок преимуществ */
+.features {
+  margin-top: 30px;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.feature {
+  background-color: #ecf7ff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+  color: #2c3e50;
+  font-size: 1.2em;
+}
+
+.feature p {
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* FAQ */
+.faq {
+  margin-top: 40px;
+}
+
+.faq-item {
+  background-color: #f4f8fc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+  color: #2c3e50;
+  font-size: 1.2em;
+}
+
+.faq-item p {
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* Футер */
+footer {
+  text-align: center;
+  padding: 1.5em;
+  background-color: #3498db;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  main {
+    width: 90%;
+    padding: 1.5em;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
   nav ul {
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
   }
 }
