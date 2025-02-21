@@ -1,0 +1,117 @@
+/* style.css */
+
+/* Сброс некоторых базовых отступов */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Базовые стили для body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* Нежный бело-голубой оттенок */
+  color: #2c3e50;           /* Тёмно-синий текст */
+}
+
+/* Шапка сайта (header) */
+header {
+  background-color: #3498db; /* Сочный синий (из Flat UI палитры) */
+  padding: 1em;
+}
+
+header h1 {
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
+/* Навигационное меню (nav) */
+nav {
+  background-color: #2980b9; /* Чуть более тёмно-синий */
+  padding: 0.5em 1em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+nav ul li {
+  /* Пробелы между пунктами */
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Основная часть (main) */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 2em;
+  margin-top: 1em; /* отступ сверху */
+  margin-bottom: 1em; /* отступ снизу */
+  border-radius: 5px;
+}
+
+/* Заголовки */
+h1, h2 {
+  color: #2c3e50; /* Тёмно-синий */
+  margin-bottom: 0.5em;
+}
+
+/* Ссылки */
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Списки */
+ul {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* Футер (footer) */
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+/* Дополнительно, если нужен button-ссылки */
+.button {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.75em 1.5em;
+  background-color: #2980b9;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #1c6fa1;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+}
