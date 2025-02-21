@@ -11,6 +11,7 @@ body {
   background-color: #f0f8ff; /* Нежный бело-голубой оттенок */
   color: #2c3e50; /* Тёмно-синий текст */
   text-align: center;
+  line-height: 1.7; /* Увеличенный межстрочный интервал */
 }
 
 /* Шапка сайта (header) */
@@ -22,11 +23,13 @@ header {
 header h1 {
   color: #ffffff;
   font-size: 1.8em;
+  line-height: 1.6; /* Межстрочный интервал */
 }
 
 header p {
   color: #ecf0f1; /* Светлый оттенок */
   font-size: 1em;
+  line-height: 1.6;
 }
 
 /* Навигационное меню (nav) */
@@ -64,16 +67,22 @@ main {
   padding: 2em;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  line-height: 1.8; /* Увеличенный межстрочный интервал */
 }
 
 /* Заголовки */
-h1, h2 {
+h1, h2, h3 {
   color: #2c3e50; /* Тёмно-синий */
   margin-bottom: 0.5em;
+  line-height: 1.6;
 }
 
 h2 {
   font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
 }
 
 /* Блок с кнопками */
@@ -95,6 +104,7 @@ h2 {
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.3s ease-in-out, transform 0.2s;
+  line-height: 1.4;
 }
 
 .button:hover {
@@ -105,6 +115,7 @@ h2 {
 /* Блок преимуществ */
 .features {
   margin-top: 30px;
+  line-height: 1.8;
 }
 
 .feature-list {
@@ -129,6 +140,7 @@ h2 {
 .feature p {
   font-size: 0.95em;
   color: #555;
+  line-height: 1.8;
 }
 
 /* FAQ */
@@ -142,6 +154,7 @@ h2 {
   margin-bottom: 10px;
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
 }
 
 .faq-item h3 {
@@ -161,6 +174,7 @@ footer {
   background-color: #3498db;
   color: #ffffff;
   margin-top: 20px;
+  line-height: 1.8;
 }
 
 /* Адаптивность для мобильных устройств */
