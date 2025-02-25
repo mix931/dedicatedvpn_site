@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Часто задаваемые вопросы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .faq-question {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #0056b3;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            background: #f9f9f9;
+            margin-top: 5px;
+            border-left: 4px solid #007bff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="faq-container">
+        <h2>Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Как работает VPN?</div>
+            <div class="faq-answer">VPN (Virtual Private Network) создаёт зашифрованное соединение между вашим устройством и удалённым сервером, скрывая ваш IP-адрес.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Какие протоколы поддерживаются?</div>
+            <div class="faq-answer">Наш сервис поддерживает OpenVPN, WireGuard, Shadowsocks и другие безопасные протоколы.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Можно ли использовать VPN на нескольких устройствах?</div>
+            <div class="faq-answer">Да, вы можете подключать несколько устройств в зависимости от вашего тарифного плана.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">Как оплатить подписку?</div>
+            <div class="faq-answer">Мы принимаем платежи через карты Visa/MasterCard, криптовалюты и электронные кошельки.</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            let answer = element.nextElementSibling;
+            let allAnswers = document.querySelectorAll(".faq-answer");
+
+            // Закрываем все ответы, кроме выбранного
+            allAnswers.forEach(a => {
+                if (a !== answer) {
+                    a.style.display = "none";
+                }
+            });
+
+            // Открываем или закрываем выбранный ответ
+            answer.style.display = (answer.style.display === "block") ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>
