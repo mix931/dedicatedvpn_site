@@ -7,9 +7,9 @@ canvas.height = window.innerHeight;
 const rockets = [];
 const numRockets = 5; // Количество ракет
 
-// Загружаем изображение ракеты
+// Загружаем изображение ракеты из корневого каталога
 const rocketImg = new Image();
-rocketImg.src = "https://cdn-icons-png.flaticon.com/512/2909/2909764.png"; // Можно заменить на свою иконку
+rocketImg.src = "/rocket.png"; // Абсолютный путь к картинке в корне репозитория
 
 class Rocket {
     constructor() {
@@ -48,8 +48,10 @@ class Rocket {
             ctx.fill();
         }
 
-        // Рисуем ракету
-        ctx.drawImage(rocketImg, this.x, this.y, this.size, this.size);
+        // Рисуем ракету, если изображение загружено
+        if (rocketImg.complete) {
+            ctx.drawImage(rocketImg, this.x, this.y, this.size, this.size);
+        }
     }
 
     reset() {
@@ -79,4 +81,5 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-animate();
+// Запускаем анимацию, когда изображение ракеты загружено
+rocketImg.onload = animate;
