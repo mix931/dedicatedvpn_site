@@ -5,13 +5,27 @@
   box-sizing: border-box;
 }
 
-/* Базовые стили для body */
+/* Базовые стили для body и wrapper */
+body, html {
+  height: 100%;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
   background-color: #f0f8ff; /* Нежный бело-голубой оттенок */
   color: #2c3e50; /* Тёмно-синий текст */
   text-align: center;
   line-height: 1.7; /* Увеличенный межстрочный интервал */
+}
+
+/* Контентная часть */
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Шапка сайта (header) */
@@ -179,8 +193,8 @@ footer {
   padding: 1.5em;
   background-color: #3498db;
   color: #ffffff;
-  margin-top: 20px;
   line-height: 1.8;
+  margin-top: auto; /* Автоматический отступ для прижатия к низу */
 }
 
 /* Адаптивность для мобильных устройств */
