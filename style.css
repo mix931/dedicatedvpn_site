@@ -35,14 +35,23 @@ header {
 }
 
 .header-content {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
 }
 
 .header-content h1 {
   color: #ffffff;
   font-size: 1.8em;
   line-height: 1.6;
-  margin-bottom: 5px;
+  margin: 0;
 }
 
 .header-subtitle {
@@ -50,6 +59,8 @@ header {
   font-size: 1.1em;
   font-weight: normal;
   margin-top: 5px;
+  text-align: center;
+  width: 100%;
 }
 
 /* Навигационное меню (nav) */
@@ -263,5 +274,14 @@ footer {
 
   .feature-list {
     grid-template-columns: 1fr;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    margin-bottom: 5px;
   }
 }
