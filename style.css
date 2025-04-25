@@ -15,10 +15,10 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-  background-color: #f0f8ff; /* Нежный бело-голубой оттенок */
-  color: #2c3e50; /* Тёмно-синий текст */
+  background-color: #121212; /* Очень тёмный фон */
+  color: #e0e0e0; /* Светлый текст */
   text-align: center;
-  line-height: 1.7; /* Увеличенный межстрочный интервал */
+  line-height: 1.7;
 }
 
 /* Контентная часть */
@@ -30,7 +30,7 @@ body {
 
 /* Шапка сайта (header) */
 header {
-  background-color: #3498db; /* Синий фон */
+  background-color: #1f1f1f; /* Тёмный фон шапки */
   padding: 1.5em;
 }
 
@@ -46,7 +46,7 @@ header {
 }
 
 .header-subtitle {
-  color: #ffffff; /* Белый текст */
+  color: #bbbbbb; /* Светло-серый текст */
   font-size: 1.1em;
   font-weight: normal;
   margin-top: 5px;
@@ -54,7 +54,7 @@ header {
 
 /* Навигационное меню (nav) */
 nav {
-  background-color: #2980b9; /* Темно-синий */
+  background-color: #222222; /* Ещё темнее */
   padding: 0.7em 1em;
 }
 
@@ -76,23 +76,23 @@ nav ul li a {
 
 nav ul li a:hover {
   text-decoration: underline;
-  color: #d0e3f0;
+  color: #7ab6f9; /* Светло-синий при наведении */
 }
 
 /* Основная часть (main) */
 main {
   max-width: 900px;
   margin: 20px auto;
-  background-color: #ffffff;
+  background-color: #1e1e1e; /* Тёмный фон */
   padding: 2em;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  line-height: 1.8; /* Увеличенный межстрочный интервал */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Более мягкая тень */
+  line-height: 1.8;
 }
 
 /* Заголовки */
 h1, h2, h3 {
-  color: #2c3e50; /* Тёмно-синий */
+  color: #ffffff;
   margin-bottom: 0.5em;
   line-height: 1.6;
 }
@@ -109,7 +109,7 @@ h3 {
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 30px; /* Увеличенный промежуток между кнопками */
+  gap: 30px;
   margin-top: 25px;
 }
 
@@ -117,7 +117,7 @@ h3 {
 .button {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #2980b9;
+  background-color: #3498db;
   color: #ffffff;
   font-size: 18px;
   font-weight: bold;
@@ -128,7 +128,7 @@ h3 {
 }
 
 .button:hover {
-  background-color: #1c6fa1;
+  background-color: #2980b9;
   transform: scale(1.05);
 }
 
@@ -146,20 +146,20 @@ h3 {
 }
 
 .feature {
-  background-color: #ecf7ff;
+  background-color: #2a2a2a; /* Серо-чёрный блок */
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .feature h3 {
-  color: #2c3e50;
+  color: #ffffff;
   font-size: 1.2em;
 }
 
 .feature p {
   font-size: 0.95em;
-  color: #555;
+  color: #cccccc;
   line-height: 1.8;
 }
 
@@ -169,32 +169,32 @@ h3 {
 }
 
 .faq-item {
-  background-color: #f4f8fc;
+  background-color: #2a2a2a;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   line-height: 1.8;
 }
 
 .faq-item h3 {
-  color: #2c3e50;
+  color: #ffffff;
   font-size: 1.2em;
 }
 
 .faq-item p {
   font-size: 0.95em;
-  color: #555;
+  color: #bbbbbb;
 }
 
 /* Футер */
 footer {
   text-align: center;
   padding: 1.5em;
-  background-color: #3498db;
+  background-color: #1f1f1f;
   color: #ffffff;
   line-height: 1.8;
-  margin-top: auto; /* Автоматический отступ для прижатия к низу */
+  margin-top: auto;
 }
 
 /* Адаптивность для мобильных устройств */
