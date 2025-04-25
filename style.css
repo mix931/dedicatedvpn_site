@@ -42,9 +42,10 @@ header {
 }
 
 .logo {
-  width: 48px;
-  height: 48px;
+  width: 1.8em;
+  height: 1.8em;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 .header-content h1 {
