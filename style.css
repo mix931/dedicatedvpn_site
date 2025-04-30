@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Базовые стили для body и wrapper */
+/* Основные параметры для всей страницы */
 body, html {
   height: 100%;
 }
@@ -21,40 +21,45 @@ body {
   line-height: 1.7;
 }
 
-/* Контентная часть */
+/* Контейнер-каркас страницы */
 .wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Шапка сайта (header) */
+/* ===== Шапка сайта (header) ===== */
 header {
   background-color: #1f1f1f;
   padding: 1.5em;
 }
 
+/* Блок с заголовком и логотипом */
 .header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
+  display: flex;                 /* Горизонтальное расположение */
+  align-items: center;          /* Вертикальное выравнивание по центру */
+  justify-content: center;      /* Центрирование содержимого */
+  gap: 14px;                    /* Отступ между логотипом и заголовком */
+  flex-wrap: wrap;              /* Перенос на мобилках */
 }
 
+/* Вспомогательный контейнер, если тебе нужно группировать логотип и текст */
 .header-title-block {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
+/* === СТИЛИ ЛОГОТИПА === */
+/* Чтобы сделать логотип больше — просто измени значения width и height */
 .logo {
-  width: 3.2em;
-  height: 3.2em;
-  border-radius: 8px;
-  object-fit: contain;
+  width: 7.0em;                 /* Размер логотипа (по ширине). Увеличь до 4em, 5em и т.д. */
+  height: 7.0em;                /* Размер логотипа (по высоте) */
+  border-radius: 8px;          /* Скругление углов логотипа */
+  object-fit: contain;         /* Чтобы логотип не искажался */
 }
 
+/* Основной заголовок */
 .header-content h1 {
   color: #ffffff;
   font-size: 1.8em;
@@ -62,6 +67,7 @@ header {
   margin: 0;
 }
 
+/* Подзаголовок */
 .header-subtitle {
   color: #bbbbbb;
   font-size: 1.1em;
@@ -71,7 +77,7 @@ header {
   width: 100%;
 }
 
-/* Навигационное меню (nav) */
+/* ===== Меню навигации ===== */
 nav {
   background-color: #222222;
   padding: 0.7em 1em;
@@ -81,6 +87,7 @@ nav {
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
+/* Горизонтальный список ссылок */
 nav ul {
   list-style: none;
   display: flex;
@@ -89,6 +96,7 @@ nav ul {
   gap: 1.2em;
 }
 
+/* Ссылки в навигации */
 nav ul li a {
   color: #ffffff;
   text-decoration: none;
@@ -102,11 +110,12 @@ nav ul li a:hover {
   color: #7ab6f9;
 }
 
+/* Подсветка активного пункта */
 nav ul li a.active {
   border-bottom: 2px solid #7ab6f9;
 }
 
-/* Основная часть (main) */
+/* ===== Основная часть ===== */
 main {
   max-width: 900px;
   margin: 40px auto;
@@ -145,7 +154,7 @@ main a:hover {
   text-align: center;
 }
 
-/* Заголовки */
+/* Заголовки внутри main */
 h1, h2, h3 {
   color: #ffffff;
   margin-bottom: 0.5em;
@@ -160,7 +169,7 @@ h3 {
   font-size: 1.3em;
 }
 
-/* Блок с кнопками */
+/* ===== Блок с кнопками ===== */
 .buttons {
   display: flex;
   justify-content: center;
@@ -168,7 +177,6 @@ h3 {
   margin-top: 25px;
 }
 
-/* Кнопки */
 .button {
   display: inline-block;
   padding: 15px 30px;
@@ -187,7 +195,7 @@ h3 {
   transform: scale(1.05);
 }
 
-/* Блок преимуществ */
+/* ===== Блок преимуществ ===== */
 .features {
   margin-top: 30px;
   line-height: 1.8;
@@ -218,7 +226,7 @@ h3 {
   line-height: 1.8;
 }
 
-/* FAQ */
+/* ===== FAQ ===== */
 .faq {
   margin-top: 40px;
 }
@@ -242,7 +250,7 @@ h3 {
   color: #bbbbbb;
 }
 
-/* Футер */
+/* ===== Футер ===== */
 footer {
   text-align: center;
   padding: 1.5em;
@@ -252,13 +260,13 @@ footer {
   margin-top: auto;
 }
 
-/* Анимация */
+/* Анимация появления */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Адаптивность для мобильных устройств */
+/* ===== Адаптивность для мобильных ===== */
 @media (max-width: 768px) {
   main {
     width: 90%;
@@ -291,7 +299,7 @@ footer {
 
   .logo {
     margin-bottom: 5px;
-    width: 3.6em;
-    height: 3.6em;
+    width: 7.0em;   /* Логотип станет больше на мобильных */
+    height: 7.0em;
   }
 }
