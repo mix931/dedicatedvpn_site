@@ -1,11 +1,11 @@
-/* Сброс базовых отступов и рамок */
+/* ===== СБРОС БАЗОВЫХ СТИЛЕЙ ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Основные параметры для всей страницы */
+/* ===== ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ ===== */
 body, html {
   height: 100%;
 }
@@ -15,61 +15,55 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: 'Rubik', sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: #0d1117;     /* GitHub dark background */
+  color: #c9d1d9;                /* GitHub primary text color */
   text-align: center;
   line-height: 1.7;
 }
 
-/* Контейнер-каркас страницы */
+/* ===== ОБЕРТКА ===== */
 .wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* ===== Шапка сайта (header) ===== */
+/* ===== ШАПКА САЙТА ===== */
 header {
-  background-color: #1f1f1f;
+  background-color: #161b22;    /* GitHub header background */
   padding: 1.5em;
 }
 
-/* Блок с заголовком и логотипом */
 .header-content {
-  display: flex;                 /* Горизонтальное расположение */
-  align-items: center;          /* Вертикальное выравнивание по центру */
-  justify-content: center;      /* Центрирование содержимого */
-  gap: 14px;                    /* Отступ между логотипом и заголовком */
-  flex-wrap: wrap;              /* Перенос на мобилках */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-/* Вспомогательный контейнер, если тебе нужно группировать логотип и текст */
 .header-title-block {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* === СТИЛИ ЛОГОТИПА === */
-/* Чтобы сделать логотип больше — просто измени значения width и height */
 .logo {
-  width: 7.0em;                 /* Размер логотипа (по ширине). Увеличь до 4em, 5em и т.д. */
-  height: 7.0em;                /* Размер логотипа (по высоте) */
-  border-radius: 8px;          /* Скругление углов логотипа */
-  object-fit: contain;         /* Чтобы логотип не искажался */
+  width: 7.0em;
+  height: 7.0em;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
-/* Основной заголовок */
 .header-content h1 {
-  color: #ffffff;
+  color: #f0f6fc;               /* GitHub title color */
   font-size: 1.8em;
   line-height: 1.6;
   margin: 0;
 }
 
-/* Подзаголовок */
 .header-subtitle {
-  color: #bbbbbb;
+  color: #8b949e;               /* GitHub subtitle color */
   font-size: 1.1em;
   font-weight: normal;
   margin-top: 5px;
@@ -77,9 +71,9 @@ header {
   width: 100%;
 }
 
-/* ===== Меню навигации ===== */
+/* ===== НАВИГАЦИЯ ===== */
 nav {
-  background-color: #222222;
+  background-color: #161b22;
   padding: 0.7em 1em;
   position: sticky;
   top: 0;
@@ -87,7 +81,6 @@ nav {
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* Горизонтальный список ссылок */
 nav ul {
   list-style: none;
   display: flex;
@@ -96,9 +89,8 @@ nav ul {
   gap: 1.2em;
 }
 
-/* Ссылки в навигации */
 nav ul li a {
-  color: #ffffff;
+  color: #c9d1d9;
   text-decoration: none;
   font-weight: bold;
   padding: 0.5em;
@@ -107,19 +99,18 @@ nav ul li a {
 
 nav ul li a:hover {
   text-decoration: underline;
-  color: #7ab6f9;
+  color: #58a6ff;               /* GitHub blue hover */
 }
 
-/* Подсветка активного пункта */
 nav ul li a.active {
-  border-bottom: 2px solid #7ab6f9;
+  border-bottom: 2px solid #58a6ff;
 }
 
-/* ===== Основная часть ===== */
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 main {
   max-width: 900px;
   margin: 40px auto;
-  background-color: #1e1e1e;
+  background-color: #161b22;
   padding: 2em;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
@@ -128,20 +119,23 @@ main {
   animation: fadeIn 0.6s ease-in-out;
 }
 
-main h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #ffffff;
+main h1, h1, h2, h3 {
+  color: #f0f6fc;
+  margin-bottom: 0.5em;
+  line-height: 1.6;
 }
+
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3em; }
 
 main p {
   font-size: 1.05em;
   margin-bottom: 20px;
-  color: #cccccc;
+  color: #c9d1d9;
 }
 
 main a {
-  color: #7ab6f9;
+  color: #58a6ff;
   text-decoration: none;
 }
 
@@ -154,22 +148,7 @@ main a:hover {
   text-align: center;
 }
 
-/* Заголовки внутри main */
-h1, h2, h3 {
-  color: #ffffff;
-  margin-bottom: 0.5em;
-  line-height: 1.6;
-}
-
-h2 {
-  font-size: 1.5em;
-}
-
-h3 {
-  font-size: 1.3em;
-}
-
-/* ===== Блок с кнопками ===== */
+/* ===== КНОПКИ ===== */
 .buttons {
   display: flex;
   justify-content: center;
@@ -180,7 +159,7 @@ h3 {
 .button {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #3498db;
+  background-color: #238636;         /* GitHub green */
   color: #ffffff;
   font-size: 18px;
   font-weight: bold;
@@ -191,11 +170,11 @@ h3 {
 }
 
 .button:hover {
-  background-color: #2980b9;
+  background-color: #2ea44f;
   transform: scale(1.05);
 }
 
-/* ===== Блок преимуществ ===== */
+/* ===== ПРЕИМУЩЕСТВА ===== */
 .features {
   margin-top: 30px;
   line-height: 1.8;
@@ -209,20 +188,20 @@ h3 {
 }
 
 .feature {
-  background-color: #2a2a2a;
+  background-color: #21262d;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .feature h3 {
-  color: #ffffff;
+  color: #f0f6fc;
   font-size: 1.2em;
 }
 
 .feature p {
   font-size: 0.95em;
-  color: #cccccc;
+  color: #8b949e;
   line-height: 1.8;
 }
 
@@ -232,7 +211,7 @@ h3 {
 }
 
 .faq-item {
-  background-color: #2a2a2a;
+  background-color: #21262d;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 8px;
@@ -241,32 +220,32 @@ h3 {
 }
 
 .faq-item h3 {
-  color: #ffffff;
+  color: #f0f6fc;
   font-size: 1.2em;
 }
 
 .faq-item p {
   font-size: 0.95em;
-  color: #bbbbbb;
+  color: #8b949e;
 }
 
-/* ===== Футер ===== */
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 1.5em;
-  background-color: #1f1f1f;
-  color: #ffffff;
+  background-color: #161b22;
+  color: #8b949e;
   line-height: 1.8;
   margin-top: auto;
 }
 
-/* Анимация появления */
+/* ===== ANIMATION ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== Адаптивность для мобильных ===== */
+/* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
   main {
     width: 90%;
@@ -299,7 +278,7 @@ footer {
 
   .logo {
     margin-bottom: 5px;
-    width: 7.0em;   /* Логотип станет больше на мобильных */
-    height: 7.0em;
+    width: 7em;
+    height: 7em;
   }
 }
