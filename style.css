@@ -1,6 +1,4 @@
-
 /* ===== СБРОС БАЗОВЫХ СТИЛЕЙ ===== */
-/* Убираем отступы и делаем блочную модель более предсказуемой */
 * {
   margin: 0;
   padding: 0;
@@ -17,12 +15,13 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: 'Rubik', sans-serif;
-  background-color: #0d1117;
-  color: #c9d1d9;
+  background-color: #0d1117;     /* GitHub dark background */
+  color: #c9d1d9;                /* GitHub primary text color */
   text-align: center;
   line-height: 1.7;
 }
 
+/* ===== ОБЕРТКА ===== */
 .wrapper {
   flex: 1;
   display: flex;
@@ -31,7 +30,7 @@ body {
 
 /* ===== ШАПКА САЙТА ===== */
 header {
-  background-color: #161b22;
+  background-color: #161b22;    /* GitHub header background */
   padding: 1.5em;
 }
 
@@ -57,14 +56,14 @@ header {
 }
 
 .header-content h1 {
-  color: #f0f6fc;
+  color: #f0f6fc;               /* GitHub title color */
   font-size: 1.8em;
   line-height: 1.6;
   margin: 0;
 }
 
 .header-subtitle {
-  color: #8b949e;
+  color: #8b949e;               /* GitHub subtitle color */
   font-size: 1.1em;
   font-weight: normal;
   margin-top: 5px;
@@ -100,14 +99,14 @@ nav ul li a {
 
 nav ul li a:hover {
   text-decoration: underline;
-  color: #58a6ff;
+  color: #58a6ff;               /* GitHub blue hover */
 }
 
 nav ul li a.active {
   border-bottom: 2px solid #58a6ff;
 }
 
-/* ===== ОСНОВНОЙ КОНТЕНТ (main) ===== */
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 main {
   max-width: 900px;
   margin: 40px auto;
@@ -150,15 +149,6 @@ main a:hover {
 }
 
 /* ===== КНОПКИ ===== */
-    
-/* Контейнер для набора кнопок, например: "Попробовать VPN", "Новости" и т.д. */
-.buttons {
-  display: flex;                        /* Горизонтальное выравнивание кнопок */
-  justify-content: center;             /* Центрируем кнопки по центру */
-  gap: 30px;                           /* Расстояние между кнопками */
-  margin-top: 25px;                    /* Отступ сверху */
-}
-
 .buttons {
   display: flex;
   justify-content: center;
@@ -166,42 +156,22 @@ main a:hover {
   margin-top: 25px;
 }
 
-/* Стили для одной кнопки */
 .button {
-  display: inline-block;               /* Делаем элемент строчно-блочным, чтобы применялись padding и margin */
-  padding: 12px 24px;                  /* Отступы внутри кнопки */
-  background-color: #21262d;           /* Фон кнопки — тёмный, как у GitHub */
-  color: #c9d1d9;                      /* Цвет текста кнопки */
-  font-size: 16px;                     /* Размер шрифта */
-  font-weight: 500;                    /* Толщина шрифта */
-  border: 1px solid #30363d;           /* Обводка — чуть светлее фона */
-  border-radius: 6px;                  /* Скруглённые углы */
-  text-decoration: none;               /* Без подчёркивания */
-  transition: background 0.2s ease-in-out, transform 0.1s;  /* Плавный переход при наведении */
-  line-height: 1.4;                    /* Высота строки */
-}
   display: inline-block;
-  padding: 12px 24px;
-  background-color: #21262d;
-  color: #c9d1d9;
-  font-size: 16px;
-  font-weight: 500;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  padding: 15px 30px;
+  background-color: #238636;         /* GitHub green */
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s ease-in-out, transform 0.1s;
+  transition: background 0.3s ease-in-out, transform 0.2s;
   line-height: 1.4;
 }
 
-/* Эффект при наведении курсора */
 .button:hover {
-  background-color: #30363d;           /* Чуть более светлый фон */
-  transform: scale(1.02);              /* Лёгкое увеличение кнопки */
-  color: #f0f6fc;                      /* Более контрастный текст */
-}
-  background-color: #30363d;
-  transform: scale(1.02);
-  color: #f0f6fc;
+  background-color: #2ea44f;
+  transform: scale(1.05);
 }
 
 /* ===== ПРЕИМУЩЕСТВА ===== */
@@ -235,7 +205,7 @@ main a:hover {
   line-height: 1.8;
 }
 
-/* ===== ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ) ===== */
+/* ===== FAQ ===== */
 .faq {
   margin-top: 40px;
 }
@@ -259,7 +229,7 @@ main a:hover {
   color: #8b949e;
 }
 
-/* ===== ПОДВАЛ (FOOTER) ===== */
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 1.5em;
@@ -269,13 +239,13 @@ footer {
   margin-top: auto;
 }
 
-/* ===== АНИМАЦИЯ ПРИ ЗАГРУЗКЕ ===== */
+/* ===== ANIMATION ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== АДАПТИВНЫЙ ДИЗАЙН ДЛЯ МОБИЛОК ===== */
+/* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
   main {
     width: 90%;
@@ -287,20 +257,7 @@ footer {
     gap: 15px;
   }
 
-  /* Стили для одной кнопки */
-.button {
-  display: inline-block;               /* Делаем элемент строчно-блочным, чтобы применялись padding и margin */
-  padding: 12px 24px;                  /* Отступы внутри кнопки */
-  background-color: #21262d;           /* Фон кнопки — тёмный, как у GitHub */
-  color: #c9d1d9;                      /* Цвет текста кнопки */
-  font-size: 16px;                     /* Размер шрифта */
-  font-weight: 500;                    /* Толщина шрифта */
-  border: 1px solid #30363d;           /* Обводка — чуть светлее фона */
-  border-radius: 6px;                  /* Скруглённые углы */
-  text-decoration: none;               /* Без подчёркивания */
-  transition: background 0.2s ease-in-out, transform 0.1s;  /* Плавный переход при наведении */
-  line-height: 1.4;                    /* Высота строки */
-}
+  .button {
     width: 100%;
     text-align: center;
   }
