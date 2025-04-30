@@ -38,12 +38,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .logo {
-  width: 1.8em;
-  height: 1.8em;
+  width: 2.4em;
+  height: 2.4em;
   border-radius: 8px;
   object-fit: contain;
 }
@@ -284,5 +284,7 @@ footer {
 
   .logo {
     margin-bottom: 5px;
+    width: 2.6em;
+    height: 2.6em;
   }
 }
