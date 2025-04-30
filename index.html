@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dedicated VPN – Быстрый и безопасный VPN</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <style>
+    .menu-toggle {
+      display: none;
+      margin: 10px auto;
+      padding: 10px 18px;
+      font-size: 16px;
+      background-color: #21262d;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    nav.mobile-nav {
+      display: none;
+      background-color: #161b22;
+    }
+
+    nav.mobile-nav.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav.desktop-nav {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,11 +49,10 @@
       <h1>Dedicated VPN</h1>
       <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
     </div>
-    <!-- Кнопка гамбургер -->
-    <button class="menu-toggle" aria-label="Меню">
-      ☰
-    </button>
   </div>
+
+  <!-- Кнопка "Открыть меню" для мобильных -->
+  <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
 
 <nav class="mobile-nav">
@@ -36,7 +67,6 @@
 </nav>
 
 <main>
-
   <section class="hero">
     <h2>Лучший VPN-сервис для вашей конфиденциальности</h2>
     <p>Подключайтесь к Dedicated VPN и наслаждайтесь свободным интернетом без ограничений.</p>
@@ -49,37 +79,30 @@
   <section class="features">
     <h2>Преимущества Dedicated VPN</h2>
     <div class="feature-list">
-
       <div class="feature">
         <h3>🛡️ Высокая защита данных</h3>
         <p>Шифрование AES-256 гарантирует, что ваши данные останутся в безопасности.</p>
       </div>
-
       <div class="feature">
         <h3>⚡ Высокая скорость</h3>
         <p>Наши выделенные серверы обеспечивают максимальную производительность.</p>
       </div>
-
       <div class="feature">
         <h3>🌎 Доступ без границ</h3>
         <p>Обходите блокировки и наслаждайтесь свободным интернетом в любой стране.</p>
       </div>
-
       <div class="feature">
         <h3>📱 Поддержка всех устройств</h3>
         <p>Работает на Windows, macOS, Android, iOS, Linux и маршрутизаторах.</p>
       </div>
-
       <div class="feature">
         <h3>🕶️ Гарантия анонимности</h3>
         <p>Ваши данные и интернет-активность остаются полностью конфиденциальными. Мы не ведем логи и не передаем информацию третьим лицам.</p>
       </div>
-
       <div class="feature">
         <h3>📞 Круглосуточная поддержка</h3>
         <p>Наша команда специалистов всегда готова помочь вам. Свяжитесь с нами в любое время через чат, почту или телефон.</p>
       </div>
-
     </div>
   </section>
 
@@ -100,19 +123,16 @@
       <h3>Какие устройства поддерживаются?</h3>
       <p>Вы можете подключить VPN на Windows, Mac, Android, iOS, а также маршрутизаторах.</p>
     </div>
-
   </section>
-
 </main>
 
 <footer>
   <p>© 2025 Dedicated VPN. Все права защищены.</p>
 </footer>
 
-<!-- ===== JS для мобильного меню ===== -->
 <script>
   const toggleButton = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('nav');
+  const nav = document.querySelector('.mobile-nav');
 
   toggleButton.addEventListener('click', () => {
     nav.classList.toggle('active');

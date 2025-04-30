@@ -40,6 +40,7 @@ header {
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .header-title-block {
@@ -49,8 +50,8 @@ header {
 }
 
 .logo {
-  width: 7.0em;
-  height: 7.0em;
+  width: 7em;
+  height: 7em;
   border-radius: 8px;
   object-fit: contain;
 }
@@ -67,21 +68,25 @@ header {
   font-size: 1.1em;
   font-weight: normal;
   margin-top: 5px;
-  text-align: center;
   width: 100%;
 }
 
-/* ===== ГАМБУРГЕР-КНОПКА (ТОЛЬКО НА МОБИЛКАХ) ===== */
+/* ===== ГАМБУРГЕР-КНОПКА ===== */
 .menu-toggle {
   display: none;
-  background: none;
-  border: none;
+  background-color: #21262d;
   color: #c9d1d9;
-  font-size: 2em;
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 16px;
   cursor: pointer;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  z-index: 1000;
 }
 
 /* ===== НАВИГАЦИЯ ===== */
