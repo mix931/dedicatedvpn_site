@@ -7,17 +7,53 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <style>
+    /* Кнопка меню для мобильных устройств */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8em;
+      color: #c9d1d9;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+      }
+
+      nav.active {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
+  <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
   <div class="header-content">
     <h1>Dedicated VPN</h1>
     <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
   </div>
 </header>
 
-<nav>
+<nav id="main-nav">
   <ul>
     <li><a href="index.html">Главная</a></li>
     <li><a href="about_us.html">О нас</a></li>
@@ -72,6 +108,12 @@
 <footer>
   <p>© 2025 Dedicated VPN. Все права защищены.</p>
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('main-nav').classList.toggle('active');
+  }
+</script>
 
 </body>
 </html>
