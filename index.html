@@ -11,16 +11,20 @@
 <body>
 
 <header>
-  <div class="header-content" style="display: flex; align-items: center; gap: 12px;">
+  <div class="header-content">
     <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
     <div>
       <h1>Dedicated VPN</h1>
       <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
     </div>
+    <!-- Кнопка гамбургер -->
+    <button class="menu-toggle" aria-label="Меню">
+      ☰
+    </button>
   </div>
 </header>
 
-<nav>
+<nav class="mobile-nav">
   <ul>
     <li><a href="index.html" class="active">Главная</a></li>
     <li><a href="about_us.html">О нас</a></li>
@@ -104,6 +108,16 @@
 <footer>
   <p>© 2025 Dedicated VPN. Все права защищены.</p>
 </footer>
+
+<!-- ===== JS для мобильного меню ===== -->
+<script>
+  const toggleButton = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  toggleButton.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
