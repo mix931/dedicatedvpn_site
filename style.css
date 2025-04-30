@@ -39,11 +39,18 @@ header {
   align-items: center;
   justify-content: center;
   gap: 14px;
+  flex-wrap: wrap;
+}
+
+.header-title-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .logo {
-  width: 2.4em;
-  height: 2.4em;
+  width: 3.2em;
+  height: 3.2em;
   border-radius: 8px;
   object-fit: contain;
 }
@@ -284,7 +291,7 @@ footer {
 
   .logo {
     margin-bottom: 5px;
-    width: 2.6em;
-    height: 2.6em;
+    width: 3.6em;
+    height: 3.6em;
   }
 }
