@@ -310,3 +310,10 @@ footer {
     height: 7em;
   }
 }
+
+/* ===== ОБЯЗАТЕЛЬНО ОТОБРАЖАЕМ НАВИГАЦИЮ НА ДЕСКТОПЕ ===== */
+@media (min-width: 769px) {
+  nav {
+    display: block !important;
+  }
+}
