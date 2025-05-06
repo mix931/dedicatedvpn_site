@@ -4,191 +4,144 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dedicated VPN – Быстрый и безопасный VPN</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
   <style>
-    /* Шапка */
-    header {
-      background-color: #161b22;
-      padding: 1.2em 1em 0.7em;
-      text-align: center;
-    }
-
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .logo {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
-
-    .header-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .header-content h1 {
-      font-size: 1.6em;
-      margin: 0;
-      color: #f0f6fc;
-    }
-
-    .header-subtitle {
-      font-size: 1em;
-      color: #8b949e;
-      margin-top: 4px;
-    }
-
-    /* Десктоп-меню */
-    nav.desktop-nav {
-      background-color: #161b22;
-      padding: 0.5em 0;
-    }
-
-    nav.desktop-nav ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.2em;
-      list-style: none;
+    /* ===== CSS RESET ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
-    nav.desktop-nav ul li a {
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: #0d1117;
       color: #c9d1d9;
-      text-decoration: none;
-      font-weight: bold;
+    }
+    a { text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    header {
+      background-color: #161b22;
+      padding: 1em;
+    }
+    .header-main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1em;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75em;
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+    .header-text h1 {
+      font-size: 1.5rem;
+      color: #f0f6fc;
+    }
+    .header-text p {
+      font-size: 0.95rem;
+      color: #8b949e;
+    }
+
+    /* ===== MENU BUTTON (MOBILE) ===== */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #c9d1d9;
+      cursor: pointer;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      background-color: #161b22;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.25em;
+    }
+    nav ul li a {
+      display: block;
       padding: 0.5em;
+      font-weight: bold;
+      color: #c9d1d9;
+      transition: color 0.2s, border-bottom 0.2s;
     }
-
-    nav.desktop-nav ul li a:hover {
+    nav ul li a:hover,
+    nav ul li a.active {
       color: #58a6ff;
-      text-decoration: underline;
-    }
-
-    nav.desktop-nav ul li a.active {
       border-bottom: 2px solid #58a6ff;
     }
 
-    /* Кнопка и мобильное меню скрыты по умолчанию */
-    .menu-toggle {
-      display: none;
-    }
-
-    nav.mobile-nav {
-      display: none;
-    }
-
-    /* Мобильная версия */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      nav.desktop-nav {
-        display: none;
-      }
-
+      /* Показать кнопку гамбургера */
       .menu-toggle {
         display: block;
-        margin: 10px auto;
-        padding: 10px 18px;
-        font-size: 16px;
-        background-color: #21262d;
-        color: #c9d1d9;
-        border: 1px solid #30363d;
-        border-radius: 6px;
-        cursor: pointer;
       }
-
-      nav.mobile-nav {
-        background-color: #161b22;
-      }
-
-      nav.mobile-nav.active {
-        display: block;
-      }
-
-      nav.mobile-nav ul {
-        display: flex;
+      /* Скрыть «обычное» меню */
+      nav ul {
         flex-direction: column;
-        align-items: center;
-        gap: 1em;
-        list-style: none;
-        padding: 1em 0;
-        margin: 0;
+        display: none;
       }
-
-      nav.mobile-nav ul li a {
-        color: #c9d1d9;
-        font-weight: bold;
-        text-decoration: none;
-      }
-
-      nav.mobile-nav ul li a:hover {
-        color: #58a6ff;
-      }
-
-      nav.mobile-nav ul li a.active {
-        border-bottom: 2px solid #58a6ff;
+      /* Прикрутить класс .open для показа списка */
+      nav ul.open {
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="header-content">
-    <img src="favicon.png" alt="Dedicated VPN" class="logo" />
-    <div class="header-text">
-      <h1>Dedicated VPN</h1>
-      <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+  <header>
+    <div class="header-main">
+      <div class="logo-area">
+        <img src="favicon.png" alt="Dedicated VPN" class="logo" />
+        <div class="header-text">
+          <h1>Dedicated VPN</h1>
+          <p>Безопасный, анонимный и быстрый доступ в интернет</p>
+        </div>
+      </div>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
     </div>
-  </div>
-  <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
-</header>
+    <nav>
+      <ul id="menu-list">
+        <li><a href="index.html" class="active">Главная</a></li>
+        <li><a href="about_us.html">О нас</a></li>
+        <li><a href="persdata.html">Персональные данные</a></li>
+        <li><a href="polconf.html">Политика конфиденциальности</a></li>
+        <li><a href="vozvrat.html">Правила возврата</a></li>
+        <li><a href="faq.html">FAQ / Часто задаваемые вопросы</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<nav class="desktop-nav">
-  <ul>
-    <li><a href="index.html" class="active">Главная</a></li>
-    <li><a href="about_us.html">О нас</a></li>
-    <li><a href="persdata.html">Персональные данные</a></li>
-    <li><a href="polconf.html">Политика конфиденциальности</a></li>
-    <li><a href="vozvrat.html">Правила возврата</a></li>
-    <li><a href="faq.html">FAQ / Часто задаваемые вопросы</a></li>
-  </ul>
-</nav>
+  <main>
+    <!-- Основной контент страницы -->
+  </main>
 
-<nav class="mobile-nav" id="mobile-nav">
-  <ul>
-    <li><a href="index.html" class="active">Главная</a></li>
-    <li><a href="about_us.html">О нас</a></li>
-    <li><a href="persdata.html">Персональные данные</a></li>
-    <li><a href="polconf.html">Политика конфиденциальности</a></li>
-    <li><a href="vozvrat.html">Правила возврата</a></li>
-    <li><a href="faq.html">FAQ / Часто задаваемые вопросы</a></li>
-  </ul>
-</nav>
+  <footer style="background:#161b22; text-align:center; padding:1em; color:#8b949e;">
+    © 2025 Dedicated VPN. Все права защищены.
+  </footer>
 
-<main>
-  <!-- Твой основной контент -->
-</main>
-
-<footer>
-  <p>© 2025 Dedicated VPN. Все права защищены.</p>
-</footer>
-
-<script>
-  function toggleMenu() {
-    const nav = document.getElementById('mobile-nav');
-    nav.classList.toggle('active');
-  }
-</script>
+  <script>
+    // Переключаем видимость меню на мобильных
+    document.getElementById('menu-toggle')
+      .addEventListener('click', () => {
+        document.getElementById('menu-list').classList.toggle('open');
+      });
+  </script>
 
 </body>
 </html>
