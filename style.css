@@ -32,15 +32,19 @@ header {
   background-color: #161b22;
   padding: 1.5em;
   position: relative;
+  /* отменяем глобальный центринг */
+  text-align: left;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* прижимаем всё в шапке влево */
+  justify-content: flex-start;
   gap: 14px;
   flex-wrap: wrap;
-  text-align: center;
+  /* заголовки теперь слева */
+  text-align: left;
 }
 
 .header-title-block {
@@ -302,6 +306,9 @@ footer {
   .header-content {
     flex-direction: column;
     gap: 10px;
+    /* на мобильных оставляем выравнивание по центру */
+    justify-content: center;
+    text-align: center;
   }
 
   .logo {
