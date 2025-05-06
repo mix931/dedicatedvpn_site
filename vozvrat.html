@@ -8,7 +8,6 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <style>
-    /* Кнопка меню для мобильной версии */
     .menu-toggle {
       display: none;
       background-color: #21262d;
@@ -65,12 +64,14 @@
 
 <header>
   <div class="header-content">
-    <h1>Dedicated VPN</h1>
-    <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+    <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
+    <div>
+      <h1>Dedicated VPN</h1>
+      <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+    </div>
   </div>
 
-  <!-- Кнопка меню под подзаголовком -->
-  <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
+  <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
 
 <nav class="mobile-nav" id="main-nav">
@@ -130,9 +131,12 @@
 </footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('main-nav').classList.toggle('active');
-  }
+  const toggleButton = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.mobile-nav');
+  
+  toggleButton.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
 </script>
 
 </body>
