@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Dedicated VPN – О нас</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" href="favicon.png"> <!-- Исправлен формат иконки -->
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <style>
     .menu-toggle {
@@ -63,13 +63,17 @@
 <body>
 
 <header>
+  <!-- Добавлен логотип -->
   <div class="header-content">
-    <h1>Dedicated VPN</h1>
-    <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+    <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
+    <div>
+      <h1>Dedicated VPN</h1>
+      <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+    </div>
   </div>
 
   <!-- Кнопка "Открыть меню" -->
-  <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
+  <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
 
 <nav class="mobile-nav" id="main-nav">
@@ -110,9 +114,13 @@
 </footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('main-nav').classList.toggle('active');
-  }
+  // Унифицированный скрипт для меню
+  const toggleButton = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.mobile-nav');
+  
+  toggleButton.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
 </script>
 
 </body>
