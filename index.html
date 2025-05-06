@@ -38,20 +38,56 @@
         display: none;
       }
     }
+
+    nav.desktop-nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2em;
+      padding: 0.5em 0;
+    }
+
+    nav.desktop-nav ul li a {
+      color: #c9d1d9;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em;
+      transition: color 0.3s ease-in-out, background 0.3s;
+    }
+
+    nav.desktop-nav ul li a:hover {
+      text-decoration: underline;
+      color: #58a6ff;
+    }
+
+    nav.desktop-nav ul li a.active {
+      border-bottom: 2px solid #58a6ff;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-content">
+  <div class="header-content" style="flex-direction: column; align-items: center;">
     <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
-    <div>
+    <div style="text-align: center;">
       <h1>Dedicated VPN</h1>
       <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
     </div>
   </div>
 
-  <!-- Кнопка "Открыть меню" для мобильных -->
+  <nav class="desktop-nav">
+    <ul>
+      <li><a href="index.html" class="active">Главная</a></li>
+      <li><a href="about_us.html">О нас</a></li>
+      <li><a href="persdata.html">Персональные данные</a></li>
+      <li><a href="polconf.html">Политика конфиденциальности</a></li>
+      <li><a href="vozvrat.html">Правила возврата</a></li>
+      <li><a href="faq.html">FAQ / Часто задаваемые вопросы</a></li>
+    </ul>
+  </nav>
+
   <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
 
@@ -108,17 +144,14 @@
 
   <section class="faq">
     <h2>Часто задаваемые вопросы</h2>
-
     <div class="faq-item">
       <h3>Как работает VPN?</h3>
       <p>VPN шифрует ваш интернет-трафик и скрывает ваш IP-адрес, обеспечивая анонимность и безопасность для Вас и Ваших данных.</p>
     </div>
-
     <div class="faq-item">
       <h3>Как купить подписку?</h3>
       <p>Перейдите в наш <a href="https://t.me/dedicatedvpn_bot">Telegram-бот</a> и опробуйте сервис. 3 дня бесплатно.</p>
     </div>
-
     <div class="faq-item">
       <h3>Какие устройства поддерживаются?</h3>
       <p>Вы можете подключить VPN на Windows, Mac, Android, iOS, а также маршрутизаторах.</p>
@@ -133,7 +166,6 @@
 <script>
   const toggleButton = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.mobile-nav');
-
   toggleButton.addEventListener('click', () => {
     nav.classList.toggle('active');
   });

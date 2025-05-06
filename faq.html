@@ -17,7 +17,7 @@
       padding: 10px 18px;
       font-size: 16px;
       cursor: pointer;
-      margin: 10px auto 0;
+      margin: 12px auto 0;
     }
 
     nav.mobile-nav {
@@ -58,17 +58,37 @@
         color: #58a6ff;
       }
     }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .header-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .header-subtitle {
+      font-size: 1em;
+      color: #8b949e;
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="header-content">
+    <img src="favicon.png" alt="Dedicated VPN" class="header-logo">
     <h1>Dedicated VPN</h1>
     <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
   </div>
 
-  <!-- Кнопка для мобильного меню -->
   <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
 </header>
 
