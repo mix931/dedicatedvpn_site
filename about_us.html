@@ -1,23 +1,92 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dedicated VPN – О нас</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
   <style>
+    header {
+      background-color: #161b22;
+      padding: 1.2em 1em 0.7em;
+      text-align: center;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .header-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-content h1 {
+      font-size: 1.6em;
+      margin: 0;
+      color: #f0f6fc;
+    }
+
+    .header-subtitle {
+      font-size: 1em;
+      color: #8b949e;
+      margin-top: 4px;
+    }
+
+    nav.desktop-nav {
+      background-color: #161b22;
+      padding: 0.5em 0;
+    }
+
+    nav.desktop-nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav.desktop-nav ul li a {
+      color: #c9d1d9;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em;
+    }
+
+    nav.desktop-nav ul li a:hover {
+      color: #58a6ff;
+      text-decoration: underline;
+    }
+
+    nav.desktop-nav ul li a.active {
+      border-bottom: 2px solid #58a6ff;
+    }
+
     .menu-toggle {
       display: none;
+      margin: 12px auto 0;
+      padding: 10px 18px;
+      font-size: 16px;
       background-color: #21262d;
       color: #c9d1d9;
       border: 1px solid #30363d;
       border-radius: 6px;
-      padding: 10px 18px;
-      font-size: 16px;
       cursor: pointer;
-      margin: 12px auto 0;
     }
 
     nav.mobile-nav {
@@ -29,54 +98,37 @@
       display: block;
     }
 
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav.desktop-nav {
-        display: none;
-      }
-
-      nav.mobile-nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-      }
-
-      nav.mobile-nav ul li a {
-        color: #c9d1d9;
-        font-weight: bold;
-        text-decoration: none;
-      }
-
-      nav.mobile-nav ul li a:hover {
-        color: #58a6ff;
-      }
-    }
-
-    .header-content {
+    nav.mobile-nav ul {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      gap: 8px;
+      gap: 1em;
+      list-style: none;
+      padding: 1em 0;
+      margin: 0;
     }
 
-    .header-logo {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      margin-bottom: 10px;
+    nav.mobile-nav ul li a {
+      color: #c9d1d9;
+      font-weight: bold;
+      text-decoration: none;
     }
 
-    .header-subtitle {
-      font-size: 1em;
-      color: #8b949e;
+    nav.mobile-nav ul li a:hover {
+      color: #58a6ff;
+    }
+
+    nav.mobile-nav ul li a.active {
+      border-bottom: 2px solid #58a6ff;
+    }
+
+    @media (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
     }
   </style>
 </head>
@@ -84,13 +136,25 @@
 
 <header>
   <div class="header-content">
-    <img src="favicon.png" alt="Dedicated VPN" class="header-logo">
-    <h1>Dedicated VPN</h1>
-    <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+    <img src="favicon.png" alt="Dedicated VPN" class="header-logo" />
+    <div class="header-text">
+      <h1>Dedicated VPN</h1>
+      <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+    </div>
   </div>
-
   <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
 </header>
+
+<nav class="desktop-nav">
+  <ul>
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="about_us.html" class="active">О нас</a></li>
+    <li><a href="persdata.html">Персональные данные</a></li>
+    <li><a href="polconf.html">Политика конфиденциальности</a></li>
+    <li><a href="vozvrat.html">Правила возврата</a></li>
+    <li><a href="faq.html">FAQ / Часто задаваемые вопросы</a></li>
+  </ul>
+</nav>
 
 <nav class="mobile-nav" id="main-nav">
   <ul>

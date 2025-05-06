@@ -1,13 +1,85 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dedicated VPN – Быстрый и безопасный VPN</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
   <style>
+    /* Шапка */
+    header {
+      background-color: #161b22;
+      padding: 1.2em 1em 0.7em;
+      text-align: center;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-content h1 {
+      font-size: 1.6em;
+      margin: 0;
+      color: #f0f6fc;
+    }
+
+    .header-subtitle {
+      font-size: 1em;
+      color: #8b949e;
+      margin-top: 4px;
+    }
+
+    /* Десктоп-меню */
+    nav.desktop-nav {
+      background-color: #161b22;
+      padding: 0.5em 0;
+    }
+
+    nav.desktop-nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav.desktop-nav ul li a {
+      color: #c9d1d9;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em;
+    }
+
+    nav.desktop-nav ul li a:hover {
+      color: #58a6ff;
+      text-decoration: underline;
+    }
+
+    nav.desktop-nav ul li a.active {
+      border-bottom: 2px solid #58a6ff;
+    }
+
+    /* Кнопка и мобильное меню */
     .menu-toggle {
       display: none;
       margin: 10px auto;
@@ -29,69 +101,67 @@
       display: block;
     }
 
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav.desktop-nav {
-        display: none;
-      }
-    }
-
-    nav.desktop-nav ul {
-      list-style: none;
+    nav.mobile-nav ul {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2em;
-      padding: 0.5em 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+      list-style: none;
+      padding: 1em 0;
+      margin: 0;
     }
 
-    nav.desktop-nav ul li a {
+    nav.mobile-nav ul li a {
       color: #c9d1d9;
-      text-decoration: none;
       font-weight: bold;
-      padding: 0.5em;
-      transition: color 0.3s ease-in-out, background 0.3s;
+      text-decoration: none;
     }
 
-    nav.desktop-nav ul li a:hover {
-      text-decoration: underline;
+    nav.mobile-nav ul li a:hover {
       color: #58a6ff;
     }
 
-    nav.desktop-nav ul li a.active {
+    nav.mobile-nav ul li a.active {
       border-bottom: 2px solid #58a6ff;
+    }
+
+    @media (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-content" style="flex-direction: column; align-items: center;">
-    <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
-    <div style="text-align: center;">
+  <div class="header-content">
+    <img src="favicon.png" alt="Dedicated VPN" class="logo" />
+    <div class="header-text">
       <h1>Dedicated VPN</h1>
       <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
     </div>
   </div>
 
-  <nav class="desktop-nav">
-    <ul>
-      <li><a href="index.html" class="active">Главная</a></li>
-      <li><a href="about_us.html">О нас</a></li>
-      <li><a href="persdata.html">Персональные данные</a></li>
-      <li><a href="polconf.html">Политика конфиденциальности</a></li>
-      <li><a href="vozvrat.html">Правила возврата</a></li>
-      <li><a href="faq.html">FAQ / Часто задаваемые вопросы</a></li>
-    </ul>
-  </nav>
-
-  <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
+  <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
 </header>
 
-<nav class="mobile-nav">
+<nav class="desktop-nav">
+  <ul>
+    <li><a href="index.html" class="active">Главная</a></li>
+    <li><a href="about_us.html">О нас</a></li>
+    <li><a href="persdata.html">Персональные данные</a></li>
+    <li><a href="polconf.html">Политика конфиденциальности</a></li>
+    <li><a href="vozvrat.html">Правила возврата</a></li>
+    <li><a href="faq.html">FAQ / Часто задаваемые вопросы</a></li>
+  </ul>
+</nav>
+
+<nav class="mobile-nav" id="mobile-nav">
   <ul>
     <li><a href="index.html" class="active">Главная</a></li>
     <li><a href="about_us.html">О нас</a></li>
@@ -129,15 +199,15 @@
       </div>
       <div class="feature">
         <h3>📱 Поддержка всех устройств</h3>
-        <p>Работает на Windows, macOS, Android, iOS, Linux и маршрутизаторах.</p>
+        <p>Работает на Windows, macOS, Android, iOS и Linux. Скоро появится поддержка маршрутизаторов!</p>
       </div>
       <div class="feature">
         <h3>🕶️ Гарантия анонимности</h3>
-        <p>Ваши данные и интернет-активность остаются полностью конфиденциальными. Мы не ведем логи и не передаем информацию третьим лицам.</p>
+        <p>Ваши данные и интернет-активность остаются полностью конфиденциальными.</p>
       </div>
       <div class="feature">
         <h3>📞 Круглосуточная поддержка</h3>
-        <p>Наша команда специалистов всегда готова помочь вам. Свяжитесь с нами в любое время через чат, почту или телефон.</p>
+        <p>Наша команда специалистов всегда готова помочь вам.</p>
       </div>
     </div>
   </section>
@@ -146,15 +216,15 @@
     <h2>Часто задаваемые вопросы</h2>
     <div class="faq-item">
       <h3>Как работает VPN?</h3>
-      <p>VPN шифрует ваш интернет-трафик и скрывает ваш IP-адрес, обеспечивая анонимность и безопасность для Вас и Ваших данных.</p>
+      <p>VPN шифрует ваш интернет-трафик и скрывает ваш IP-адрес.</p>
     </div>
     <div class="faq-item">
       <h3>Как купить подписку?</h3>
-      <p>Перейдите в наш <a href="https://t.me/dedicatedvpn_bot">Telegram-бот</a> и опробуйте сервис. 3 дня бесплатно.</p>
+      <p>Перейдите в наш <a href="https://t.me/dedicatedvpn_bot">Telegram-бот</a>. 3 дня бесплатно.</p>
     </div>
     <div class="faq-item">
       <h3>Какие устройства поддерживаются?</h3>
-      <p>Вы можете подключить VPN на Windows, Mac, Android, iOS, а также маршрутизаторах.</p>
+      <p>Вы можете подключить VPN на Windows, Mac, Android, iOS и маршрутизаторах.</p>
     </div>
   </section>
 </main>
@@ -164,11 +234,9 @@
 </footer>
 
 <script>
-  const toggleButton = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.mobile-nav');
-  toggleButton.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
+  function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('active');
+  }
 </script>
 
 </body>
