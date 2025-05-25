@@ -32,27 +32,56 @@ header {
   background-color: #161b22;
   padding: 1.5em;
   position: relative;
-  /* отменяем глобальный центринг */
   text-align: left;
 }
 
 .header-content {
   display: flex;
-  align-items: center;
-  /* прижимаем всё в шапке влево */
+  align-items: flex-start;
   justify-content: flex-start;
   gap: 14px;
-  flex-wrap: wrap;
-  /* заголовки теперь слева */
+  flex-wrap: nowrap;
   text-align: left;
+  position: relative;
+  width: 100%;
+  min-height: 7em;
+  box-sizing: border-box;
 }
 
-.header-title-block {
+/* ====== Блок даты/времени/курса ====== */
+.header-info {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  color: #c9d1d9;
+  font-size: 1em;
+  margin-left: auto;
+  min-width: 140px;
+  gap: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  box-sizing: border-box;
+}
+.header-info div {
+  opacity: 0.85;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  font-family: 'Rubik', sans-serif;
+  padding: 0 2px;
+  transition: color 0.3s;
+  line-height: 1.1;
+}
+.header-info #btc-rate {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.08em;
+  letter-spacing: 1px;
+  opacity: 0.95;
+  margin-top: 2px;
 }
 
+/* ===== ЛОГОТИП И ЗАГОЛОВОК ===== */
 .logo {
   width: 7em;
   height: 7em;
@@ -146,25 +175,20 @@ main h1, h1, h2, h3 {
   margin-bottom: 0.5em;
   line-height: 1.6;
 }
-
 h2 { font-size: 1.5em; }
 h3 { font-size: 1.3em; }
-
 main p {
   font-size: 1.05em;
   margin-bottom: 20px;
   color: #c9d1d9;
 }
-
 main a {
   color: #58a6ff;
   text-decoration: none;
 }
-
 main a:hover {
   text-decoration: underline;
 }
-
 .back-button {
   margin-top: 30px;
   text-align: center;
@@ -191,7 +215,6 @@ main a:hover {
   transition: background 0.3s ease-in-out, transform 0.2s;
   line-height: 1.4;
 }
-
 .button:hover {
   background-color: #30363d;
   color: #f0f6fc;
@@ -203,26 +226,22 @@ main a:hover {
   margin-top: 30px;
   line-height: 1.8;
 }
-
 .feature-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
-
 .feature {
   background-color: #21262d;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
-
 .feature h3 {
   color: #f0f6fc;
   font-size: 1.2em;
 }
-
 .feature p {
   font-size: 0.95em;
   color: #8b949e;
@@ -233,7 +252,6 @@ main a:hover {
 .faq {
   margin-top: 40px;
 }
-
 .faq-item {
   background-color: #21262d;
   padding: 15px;
@@ -242,12 +260,10 @@ main a:hover {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   line-height: 1.8;
 }
-
 .faq-item h3 {
   color: #f0f6fc;
   font-size: 1.2em;
 }
-
 .faq-item p {
   font-size: 0.95em;
   color: #8b949e;
@@ -270,47 +286,22 @@ footer {
 }
 
 /* ===== АДАПТИВНЫЙ ДИЗАЙН ===== */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    display: none;
-  }
-
-  nav.active {
-    display: block;
-  }
-
-  nav ul {
+@media (max-width: 900px) {
+  .header-content {
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
-  }
-
-  .buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .button {
-    width: 100%;
     text-align: center;
+    min-height: 0;
   }
-
-  .feature-list {
-    grid-template-columns: 1fr;
-  }
-
-  .header-content {
-    flex-direction: column;
-    gap: 10px;
-    /* на мобильных оставляем выравнивание по центру */
-    justify-content: center;
+  .header-info {
+    align-items: center;
     text-align: center;
+    margin: 8px 0 0 0;
+    min-width: 0;
+    font-size: 1em;
+    padding-top: 6px;
   }
-
   .logo {
     margin-bottom: 5px;
     width: 7em;

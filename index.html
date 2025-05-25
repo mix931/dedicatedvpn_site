@@ -18,7 +18,6 @@
       pointer-events: none;
     }
 
-    /* остальной твой CSS */
     .menu-toggle {
       display: none;
       margin: 10px auto;
@@ -45,6 +44,45 @@
       nav.desktop-nav {
         display: none;
       }
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .header-info {
+        align-items: flex-start;
+        text-align: left;
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+
+    .header-content {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      color: #c9d1d9;
+      font-size: 1em;
+      margin-left: auto;
+      min-width: 125px;
+      gap: 2px;
+    }
+    .header-info div {
+      opacity: 0.85;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      font-family: 'Rubik', sans-serif;
+      padding: 0 2px;
     }
   </style>
   <!-- particles.js -->
@@ -62,8 +100,13 @@
       <h1>Dedicated VPN</h1>
       <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
     </div>
+    <!-- Информационный блок справа -->
+    <div class="header-info">
+      <div id="current-date">--.--.----</div>
+      <div id="current-time">--:--:--</div>
+      <div id="btc-rate">BTC: --</div>
+    </div>
   </div>
-  <!-- Кнопка "Открыть меню" для мобильных -->
   <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
 
@@ -172,6 +215,34 @@
     },
     "retina_detect": true
   });
+
+    // Дата, время и курс BTC
+  function updateDateTime() {
+    const now = new Date();
+    document.getElementById('current-date').textContent = now.toLocaleDateString('ru-RU', {
+      day: '2-digit', month: '2-digit', year: 'numeric'
+    });
+    document.getElementById('current-time').textContent = now.toLocaleTimeString('ru-RU', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+
+  function updateBTC() {
+    fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.bitcoin && data.bitcoin.usd) {
+          document.getElementById('btc-rate').textContent = `BTC: ${data.bitcoin.usd.toLocaleString('en-US', {maximumFractionDigits: 0})} $`;
+        } else {
+          document.getElementById('btc-rate').textContent = 'BTC: --';
+        }
+      })
+      .catch(() => document.getElementById('btc-rate').textContent = 'BTC: --');
+  }
+  setInterval(updateBTC, 180000);
+  updateBTC();
 
   // Меню (без изменений)
   const toggleButton = document.querySelector('.menu-toggle');

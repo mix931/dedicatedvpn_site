@@ -17,49 +17,7 @@
       top: 0;
       pointer-events: none;
     }
-    .menu-toggle {
-      display: none;
-      background-color: #21262d;
-      color: #c9d1d9;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      padding: 10px 18px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 10px auto 0;
-    }
-    nav.mobile-nav {
-      display: none;
-      background-color: #161b22;
-    }
-    nav.mobile-nav.active {
-      display: block;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      nav.desktop-nav {
-        display: none;
-      }
-      nav.mobile-nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-      }
-      nav.mobile-nav ul li a {
-        color: #c9d1d9;
-        font-weight: bold;
-        text-decoration: none;
-      }
-      nav.mobile-nav ul li a:hover {
-        color: #58a6ff;
-      }
-    }
+    /* Остальные твои стили будут в style.css */
   </style>
   <!-- particles.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -76,8 +34,13 @@
       <h1>Dedicated VPN</h1>
       <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
     </div>
+    <!-- Блок даты/времени/курса BTC -->
+    <div class="header-info">
+      <div id="current-date">--.--.--</div>
+      <div id="current-time">--:--:--</div>
+      <div id="btc-rate">BTC: --</div>
+    </div>
   </div>
-  <!-- Кнопка "Открыть меню" -->
   <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
 
@@ -147,12 +110,40 @@
     "interactivity": {
       "detect_on": "canvas",
       "events": {
-        "onhover": { "enable": false, "mode": "repulse" },
+        "onhover": { "enable": false },
         "onclick": { "enable": false }
       }
     },
     "retina_detect": true
   });
+
+  // Дата, время и курс BTC (USD)
+  function updateDateTime() {
+    const now = new Date();
+    document.getElementById('current-date').textContent = now.toLocaleDateString('ru-RU', {
+      day: '2-digit', month: '2-digit', year: 'numeric'
+    });
+    document.getElementById('current-time').textContent = now.toLocaleTimeString('ru-RU', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+
+  function updateBTC() {
+    fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.bitcoin && data.bitcoin.usd) {
+          document.getElementById('btc-rate').textContent = `BTC: ${data.bitcoin.usd.toLocaleString('en-US', {maximumFractionDigits: 0})} $`;
+        } else {
+          document.getElementById('btc-rate').textContent = 'BTC: --';
+        }
+      })
+      .catch(() => document.getElementById('btc-rate').textContent = 'BTC: --');
+  }
+  setInterval(updateBTC, 180000);
+  updateBTC();
 
   // Унифицированный скрипт для меню
   const toggleButton = document.querySelector('.menu-toggle');
