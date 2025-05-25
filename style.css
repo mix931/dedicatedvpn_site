@@ -29,7 +29,7 @@ header {
 }
 .header-content {
   display: flex;
-  align-items: center;
+  align-items: center;        /* ИСПРАВЛЕНО: теперь по центру по высоте */
   justify-content: flex-start;
   gap: 14px;
   width: 100%;
