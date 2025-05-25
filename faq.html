@@ -8,6 +8,11 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <style>
+    body {
+      background: #11151a;
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+    }
     #particles-bg {
       position: fixed;
       z-index: 0;
@@ -17,98 +22,353 @@
       top: 0;
       pointer-events: none;
     }
-    /* Все кастомные стили для header-info только в style.css */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .header-content {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 14px;
+      flex-wrap: nowrap;
+      position: relative;
+      width: 100%;
+      min-height: 7em;
+      box-sizing: border-box;
+    }
+    .header-title-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.2em;
+    }
+    .logo {
+      width: 7em;
+      height: 7em;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      color: #c9d1d9;
+      font-size: 1em;
+      margin-left: auto;
+      min-width: 140px;
+      gap: 2px;
+      white-space: nowrap;
+      padding-top: 4px;
+      box-sizing: border-box;
+    }
+    .header-info div {
+      opacity: 0.85;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      font-family: 'Rubik', sans-serif;
+      padding: 0 2px;
+      transition: color 0.3s;
+      line-height: 1.1;
+    }
+    .header-info #btc-rate {
+      color: #ffd700;
+      font-weight: bold;
+      font-size: 1.08em;
+      letter-spacing: 1px;
+      opacity: 0.95;
+      margin-top: 2px;
+    }
+    .menu-toggle {
+      display: none;
+      width: 100%;
+      background: linear-gradient(96deg, #a2dbfa 30%, #57aaff 100%);
+      color: #153047;
+      border: none;
+      border-radius: 16px;
+      padding: 1.1em 0;
+      font-size: 1.15em;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: background 0.18s, color 0.18s, box-shadow 0.2s;
+      outline: none;
+      margin: 18px 0 20px 0;
+      z-index: 120;
+      position: relative;
+      box-shadow: 0 1px 8px 0 rgba(70,136,255,0.08);
+      backdrop-filter: blur(2px);
+    }
+    .menu-toggle:active, .menu-toggle.touched {
+      background: linear-gradient(96deg, #7bcfff 15%, #2893e6 100%);
+      color: #185c9c;
+      box-shadow: 0 2px 8px 0 rgba(70,136,255,0.13);
+    }
+    .menu-toggle:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #83c6fa85;
+    }
+    nav.mobile-nav {
+      margin-bottom: 30px;
+      background: transparent;
+    }
+    nav.mobile-nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    nav.mobile-nav ul li {
+      margin: 0;
+      padding: 0;
+    }
+    nav.mobile-nav ul li a {
+      display: block;
+      font-size: 1.14em;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 500;
+      color: #eaf6ff;
+      text-decoration: none;
+      padding: 0.82em 1.5em;
+      margin: 0 0 8px 0;
+      border-radius: 12px;
+      transition: background 0.15s, color 0.13s;
+      background: none;
+    }
+    nav.mobile-nav ul li a.active,
+    nav.mobile-nav ul li a:active {
+      background: linear-gradient(96deg, #a2dbfa 30%, #57aaff 100%);
+      color: #1d324e;
+      font-weight: 700;
+      box-shadow: 0 3px 12px 0 rgba(88,166,255,0.12);
+    }
+    nav.mobile-nav ul li a:hover {
+      background: rgba(80,150,255,0.12);
+      color: #57aaff;
+    }
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav.mobile-nav {
+        border-radius: 0 0 18px 18px;
+        box-shadow: 0 2px 18px 0 rgba(70,136,255,0.10);
+        position: static;
+        display: none;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px) scale(0.99);
+        transition: opacity 0.22s, transform 0.22s;
+        width: 100%;
+        max-width: 100%;
+        background: transparent;
+      }
+      nav.mobile-nav.active {
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+      nav.mobile-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.7em 0 0.5em 0;
+      }
+      nav.mobile-nav ul li {
+        width: 100%;
+        text-align: left;
+      }
+      nav.mobile-nav ul li a {
+        border-radius: 12px;
+        font-size: 1.14em;
+        padding: 0.90em 1.2em;
+        margin-bottom: 8px;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    @media (min-width: 901px) {
+      .menu-toggle {
+        display: none;
+      }
+      nav.mobile-nav {
+        display: block !important;
+        opacity: 1 !important;
+        pointer-events: auto;
+        transform: none !important;
+        max-width: 740px;
+        margin: 22px auto 30px auto;
+        border-radius: 18px;
+      }
+      nav.mobile-nav ul {
+        display: flex;
+        flex-direction: row;
+        gap: 0.6em;
+        padding: 0.5em 0 0.5em 0;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+      }
+      nav.mobile-nav ul li {
+        display: flex;
+        align-items: center;
+      }
+      nav.mobile-nav ul li a {
+        padding: 0.7em 1.2em;
+        color: #eaf6ff;
+        border-radius: 10px;
+        font-size: 1.13em;
+      }
+      nav.mobile-nav ul li a.active {
+        color: #222f45;
+        background: linear-gradient(96deg, #a2dbfa 30%, #57aaff 100%);
+        font-weight: 700;
+      }
+    }
+    main {
+      margin: 0 auto;
+      max-width: 680px;
+      background: rgba(24, 28, 36, 0.98);
+      border-radius: 18px;
+      box-shadow: 0 6px 32px 0 rgba(20,40,70,0.14);
+      padding: 32px 28px 34px 28px;
+      margin-bottom: 40px;
+    }
+    main h2 {
+      font-size: 2em;
+      margin-bottom: 18px;
+      background: linear-gradient(92deg, #a2dbfa 25%, #57aaff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+    .faq-list {
+      margin-top: 32px;
+    }
+    .faq-item {
+      margin-bottom: 24px;
+    }
+    .faq-item h3 {
+      margin-bottom: 8px;
+      color: #58a6ff;
+      font-weight: 700;
+      font-size: 1.17em;
+      letter-spacing: 0.01em;
+    }
+    .faq-item p {
+      margin: 0;
+      color: #eaf6ff;
+      opacity: 0.94;
+      font-size: 1.08em;
+      font-weight: 400;
+    }
+    footer {
+      text-align: center;
+      color: #bfc9d4;
+      font-size: 1em;
+      padding: 22px 0 16px 0;
+      opacity: 0.82;
+      letter-spacing: 0.03em;
+    }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
 
-<!-- Фоновая анимация -->
 <div id="particles-bg"></div>
-
-<header>
+<div class="container">
+  <header>
     <div class="header-content">
-    <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
-    <div class="header-title-block">
-      <h1>Dedicated VPN</h1>
-      <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+      <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
+      <div class="header-title-block">
+        <h1>Dedicated VPN</h1>
+        <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+      </div>
+      <div class="header-info">
+        <div id="current-date">--.--.--</div>
+        <div id="current-time">--:--:--</div>
+        <div id="btc-rate">BTC: --</div>
+      </div>
     </div>
-    <div class="header-info">
-      <div id="current-date">--.--.--</div>
-      <div id="current-time">--:--:--</div>
-      <div id="btc-rate">BTC: --</div>
-    </div>
-  </div>
-  <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
-</header>
+    <button class="menu-toggle" aria-label="Открыть меню" id="menu-btn">☰ Меню</button>
+  </header>
 
-<nav class="mobile-nav" id="main-nav">
-  <ul>
-    <li><a href="index.html">Главная</a></li>
-    <li><a href="about_us.html">О нас</a></li>
-    <li><a href="persdata.html">Персональные данные</a></li>
-    <li><a href="polconf.html">Политика конфиденциальности</a></li>
-    <li><a href="vozvrat.html">Правила возврата</a></li>
-    <li><a href="faq.html" class="active">FAQ / Часто задаваемые вопросы</a></li>
-  </ul>
-</nav>
+  <nav class="mobile-nav" id="main-nav">
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about_us.html">О нас</a></li>
+      <li><a href="persdata.html">Персональные данные</a></li>
+      <li><a href="polconf.html">Политика конфиденциальности</a></li>
+      <li><a href="vozvrat.html">Правила возврата</a></li>
+      <li><a href="faq.html" class="active">FAQ / Часто задаваемые вопросы</a></li>
+    </ul>
+  </nav>
 
-<main>
-  <section class="faq">
-    <h2>Часто задаваемые вопросы</h2>
-    <div class="faq-list">
+  <main>
+    <section class="faq">
+      <h2>Часто задаваемые вопросы</h2>
+      <div class="faq-list">
 
-      <div class="faq-item">
-        <h3>Как работает VPN?</h3>
-        <p>VPN (Virtual Private Network) создаёт зашифрованное соединение между вашим устройством и удалённым сервером, скрывая ваш IP-адрес.</p>
+        <div class="faq-item">
+          <h3>Как работает VPN?</h3>
+          <p>VPN (Virtual Private Network) создаёт зашифрованное соединение между вашим устройством и удалённым сервером, скрывая ваш IP-адрес.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Какие протоколы поддерживаются?</h3>
+          <p>Мы поддерживаем Outline, Vless и Shadowsocks.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Можно ли использовать VPN на нескольких устройствах?</h3>
+          <p>Да, один ключ может быть использован на пяти устройствах.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Как оплатить подписку?</h3>
+          <p>Мы принимаем Visa/MasterCard, МИР, Telegram Stars, криптовалюту и электронные кошельки.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Как выбрать сервер VPN?</h3>
+          <p>
+            Вы можете выбрать сервер для подключения в личном кабинете через Telegram-бот —
+            <a href="https://t.me/dedicatedvpn_bot" target="_blank">@dedicatedvpn_bot</a>.
+          </p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Есть ли у вас политика возврата?</h3>
+          <p>Да, мы предоставляем возврат средств в течение 7 дней при наличии технических проблем.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Какой уровень шифрования используется?</h3>
+          <p>Мы используем шифрование AES-256 для защиты ваших данных.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Могу ли я использовать VPN для стриминга?</h3>
+          <p>Да, наши серверы оптимизированы для работы с потоковыми сервисами.</p>
+        </div>
+
       </div>
+    </section>
+  </main>
 
-      <div class="faq-item">
-        <h3>Какие протоколы поддерживаются?</h3>
-        <p>Мы поддерживаем Outline, Vless и Shadowsocks.</p>
-      </div>
+  <footer>
+    <p>© 2025 Dedicated VPN. Все права защищены.</p>
+  </footer>
+</div>
 
-      <div class="faq-item">
-        <h3>Можно ли использовать VPN на нескольких устройствах?</h3>
-        <p>Да, один ключ может быть использован на пяти устройствах.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Как оплатить подписку?</h3>
-        <p>Мы принимаем Visa/MasterCard, МИР, Telegram Stars, криптовалюту и электронные кошельки.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Как выбрать сервер VPN?</h3>
-        <p>
-          Вы можете выбрать сервер для подключения в личном кабинете через Telegram-бот — 
-          <a href="https://t.me/dedicatedvpn_bot" target="_blank">@dedicatedvpn_bot</a>.
-        </p>
-      </div>
-      
-      <div class="faq-item">
-        <h3>Есть ли у вас политика возврата?</h3>
-        <p>Да, мы предоставляем возврат средств в течение 7 дней при наличии технических проблем.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Какой уровень шифрования используется?</h3>
-        <p>Мы используем шифрование AES-256 для защиты ваших данных.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Могу ли я использовать VPN для стриминга?</h3>
-        <p>Да, наши серверы оптимизированы для работы с потоковыми сервисами.</p>
-      </div>
-
-    </div>
-  </section>
-</main>
-
-<footer>
-  <p>© 2025 Dedicated VPN. Все права защищены.</p>
-</footer>
-
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
   // particles.js: неинтерактивный фон
   particlesJS("particles-bg", {
@@ -173,13 +433,27 @@
   setInterval(updateBTC, 180000);
   updateBTC();
 
-  // Унифицированный скрипт управления меню
-  const toggleButton = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.mobile-nav');
+  // Унифицированный скрипт для мобильного меню
+  const toggleButton = document.getElementById('menu-btn');
+  const nav = document.getElementById('main-nav');
   toggleButton.addEventListener('click', () => {
     nav.classList.toggle('active');
+    toggleButton.blur();
+    toggleButton.classList.remove('touched');
+  });
+  toggleButton.addEventListener('touchstart', function() {
+    toggleButton.classList.add('touched');
+  });
+  toggleButton.addEventListener('touchend', function() {
+    setTimeout(() => toggleButton.classList.remove('touched'), 200);
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        nav.classList.remove('active');
+      }
+    });
   });
 </script>
-
 </body>
 </html>
