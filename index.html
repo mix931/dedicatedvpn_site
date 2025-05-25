@@ -17,53 +17,28 @@
       top: 0;
       pointer-events: none;
     }
-
-    .menu-toggle {
-      display: none;
-      margin: 10px auto;
-      padding: 10px 18px;
-      font-size: 16px;
-      background-color: #21262d;
-      color: #c9d1d9;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    nav.mobile-nav {
-      display: none;
-      background-color: #161b22;
-    }
-    nav.mobile-nav.active {
-      display: block;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      nav.desktop-nav {
-        display: none;
-      }
-      .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .header-info {
-        align-items: flex-start;
-        text-align: left;
-        margin-left: 0;
-        margin-top: 10px;
-      }
-    }
-
     .header-content {
       display: flex;
       align-items: flex-start;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 14px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       position: relative;
+      width: 100%;
+      min-height: 7em;
+      box-sizing: border-box;
+    }
+    .header-title-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.2em;
+    }
+    .logo {
+      width: 7em;
+      height: 7em;
+      border-radius: 8px;
+      object-fit: contain;
     }
     .header-info {
       display: flex;
@@ -73,8 +48,11 @@
       color: #c9d1d9;
       font-size: 1em;
       margin-left: auto;
-      min-width: 125px;
+      min-width: 140px;
       gap: 2px;
+      white-space: nowrap;
+      padding-top: 4px;
+      box-sizing: border-box;
     }
     .header-info div {
       opacity: 0.85;
@@ -83,9 +61,122 @@
       white-space: nowrap;
       font-family: 'Rubik', sans-serif;
       padding: 0 2px;
+      transition: color 0.3s;
+      line-height: 1.1;
+    }
+    .header-info #btc-rate {
+      color: #ffd700;
+      font-weight: bold;
+      font-size: 1.08em;
+      letter-spacing: 1px;
+      opacity: 0.95;
+      margin-top: 2px;
+    }
+    .menu-toggle {
+      display: none;
+      background-color: #21262d;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 100%;
+      margin-top: 6px;
+      z-index: 1000;
+    }
+    nav {
+      background-color: #161b22;
+      padding: 0.7em 1em;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2em;
+    }
+    nav ul li a {
+      color: #c9d1d9;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em;
+      transition: color 0.3s, background 0.3s;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+      color: #58a6ff;
+    }
+    nav ul li a.active {
+      border-bottom: 2px solid #58a6ff;
+    }
+
+    /* ---- Мобильный стиль ---- */
+    @media (max-width: 900px) {
+      .header-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        min-height: 0;
+        text-align: center;
+      }
+      .header-title-block {
+        flex: 1;
+        align-items: flex-start;
+      }
+      .header-info {
+        align-items: flex-end;
+        text-align: right;
+        margin-left: auto;
+        margin-top: 0;
+        min-width: 0;
+        padding-top: 0;
+      }
+      .logo {
+        margin-bottom: 0;
+        width: 5em;
+        height: 5em;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      nav {
+        display: none;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+      }
+      nav.active {
+        display: block;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        width: 100%;
+        padding: 0.7em 0 0.5em 0;
+      }
+      nav ul li {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    @media (min-width: 901px) {
+      .menu-toggle {
+        display: none;
+      }
+      nav {
+        display: block !important;
+      }
     }
   </style>
-  <!-- particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
@@ -94,7 +185,7 @@
 <div id="particles-bg"></div>
 
 <header>
-    <div class="header-content">
+  <div class="header-content">
     <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
     <div class="header-title-block">
       <h1>Dedicated VPN</h1>
@@ -109,7 +200,7 @@
   <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
 
-<nav class="mobile-nav">
+<nav id="main-nav">
   <ul>
     <li><a href="index.html" class="active">Главная</a></li>
     <li><a href="about_us.html">О нас</a></li>
@@ -215,7 +306,7 @@
     "retina_detect": true
   });
 
-    // Дата, время и курс BTC
+  // Дата, время и курс BTC
   function updateDateTime() {
     const now = new Date();
     document.getElementById('current-date').textContent = now.toLocaleDateString('ru-RU', {
@@ -243,9 +334,9 @@
   setInterval(updateBTC, 180000);
   updateBTC();
 
-  // Меню (без изменений)
+  // Мобильное меню
   const toggleButton = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.mobile-nav');
+  const nav = document.getElementById('main-nav');
   toggleButton.addEventListener('click', () => {
     nav.classList.toggle('active');
   });

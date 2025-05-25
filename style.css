@@ -5,42 +5,38 @@
   box-sizing: border-box;
 }
 
-/* ===== ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ ===== */
-body, html {
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
+html, body {
   height: 100%;
 }
-
 body {
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   font-family: 'Rubik', sans-serif;
-  background-color: #0d1117;
+  background: #0d1117;
   color: #c9d1d9;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   line-height: 1.7;
+  text-align: center;
 }
 
-/* ===== ШАПКА САЙТА ===== */
+/* ===== ШАПКА ===== */
 header {
-  background-color: #161b22;
+  background: #161b22;
   padding: 1.5em 1em;
-  position: relative;
   text-align: left;
+  position: relative;
 }
-
 .header-content {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   gap: 14px;
-  flex-wrap: nowrap;   /* Важно! Не переносим! */
-  text-align: left;
   width: 100%;
-  min-height: 6em;
+  min-height: 7em;
+  flex-wrap: nowrap;
   box-sizing: border-box;
 }
-
 .logo {
   width: 7em;
   height: 7em;
@@ -48,15 +44,13 @@ header {
   object-fit: contain;
   flex-shrink: 0;
 }
-
 .header-title-block {
   flex: 1 1 0;
-  max-width: 70vw; /* ограничение, чтобы не раздувался текст */
+  max-width: 70vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-
 .header-title-block h1 {
   color: #f0f6fc;
   font-size: 1.8em;
@@ -66,7 +60,6 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .header-subtitle {
   color: #8b949e;
   font-size: 1.1em;
@@ -78,6 +71,7 @@ header {
   text-overflow: ellipsis;
 }
 
+/* ===== ДАТА / ВРЕМЯ / BTC ===== */
 .header-info {
   display: flex;
   flex-direction: column;
@@ -110,10 +104,10 @@ header {
   margin-top: 2px;
 }
 
-/* ===== ГАМБУРГЕР-КНОПКА ===== */
+/* ===== ГАМБУРГЕР ===== */
 .menu-toggle {
   display: none;
-  background-color: #21262d;
+  background: #21262d;
   color: #c9d1d9;
   border: 1px solid #30363d;
   border-radius: 6px;
@@ -130,7 +124,7 @@ header {
 
 /* ===== НАВИГАЦИЯ ===== */
 nav {
-  background-color: #161b22;
+  background: #161b22;
   padding: 0.7em 1em;
   position: sticky;
   top: 0;
@@ -159,11 +153,11 @@ nav ul li a.active {
   border-bottom: 2px solid #58a6ff;
 }
 
-/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+/* ===== КОНТЕНТ ===== */
 main {
   max-width: 900px;
   margin: 40px auto;
-  background-color: #161b22;
+  background: #161b22;
   padding: 2em;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
@@ -205,7 +199,7 @@ main a:hover {
 .button {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #21262d;
+  background: #21262d;
   color: #c9d1d9;
   font-size: 18px;
   font-weight: bold;
@@ -216,7 +210,7 @@ main a:hover {
   line-height: 1.4;
 }
 .button:hover {
-  background-color: #30363d;
+  background: #30363d;
   color: #f0f6fc;
   transform: scale(1.03);
 }
@@ -230,7 +224,7 @@ main a:hover {
   margin-top: 20px;
 }
 .feature {
-  background-color: #21262d;
+  background: #21262d;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
@@ -241,7 +235,7 @@ main a:hover {
 /* ===== FAQ ===== */
 .faq { margin-top: 40px; }
 .faq-item {
-  background-color: #21262d;
+  background: #21262d;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 8px;
@@ -255,7 +249,7 @@ main a:hover {
 footer {
   text-align: center;
   padding: 1.5em;
-  background-color: #161b22;
+  background: #161b22;
   color: #8b949e;
   line-height: 1.8;
   margin-top: auto;
@@ -267,18 +261,18 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== АДАПТИВ ===== */
+/* ======= АДАПТИВ ======= */
 @media (max-width: 900px) {
   .header-content {
     gap: 8px;
     min-height: 0;
     padding: 0;
     flex-wrap: nowrap;
+    align-items: center;
   }
   .logo {
     width: 4.5em;
     height: 4.5em;
-    margin-bottom: 2px;
   }
   .header-title-block h1 {
     font-size: 1.12em;
@@ -292,6 +286,7 @@ footer {
     padding-top: 1px;
   }
 }
+
 @media (max-width: 600px) {
   header { padding: 1em 0.2em; }
   .header-content {
@@ -299,6 +294,7 @@ footer {
     min-height: 0;
     padding: 0;
     flex-wrap: nowrap;
+    align-items: center;
   }
   .logo {
     width: 2.7em;
@@ -319,7 +315,19 @@ footer {
   }
 }
 
-/* ===== НАВИГАЦИЯ НА ДЕСКТОПЕ ===== */
+/* ===== ГАМБУРГЕР-МЕНЮ НА МОБИЛЬНОМ ===== */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { display: none; }
+  nav.mobile-nav.active { display: block; }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+}
+
+/* ===== ОБЯЗАТЕЛЬНО ОТОБРАЖАЕМ НАВИГАЦИЮ НА ДЕСКТОПЕ ===== */
 @media (min-width: 769px) {
   nav {
     display: block !important;
