@@ -27,6 +27,18 @@
       margin: 0 auto;
       padding: 0 16px;
     }
+    .full-width-header {
+      width: 100vw;
+      background: rgba(24, 28, 36, 0.98);
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      box-sizing: border-box;
+      z-index: 10;
+      box-shadow: 0 2px 24px 0 rgba(20,40,70,0.13);
+    }
     .header-content {
       display: flex;
       align-items: flex-start;
@@ -37,6 +49,9 @@
       width: 100%;
       min-height: 7em;
       box-sizing: border-box;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
     }
     .header-title-block {
       display: flex;
@@ -82,6 +97,58 @@
       opacity: 0.95;
       margin-top: 2px;
     }
+    .main-nav {
+      margin: 26px auto 32px auto;
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      width: 100%;
+      max-width: 900px;
+      z-index: 3;
+      border-radius: 0;
+      position: relative;
+    }
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+    .main-nav ul li {
+      margin: 0;
+      padding: 0;
+    }
+    .main-nav ul li a {
+      display: inline-block;
+      color: #eaf6ff;
+      background: none;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 500;
+      font-size: 1.08em;
+      padding: 0.7em 1.5em;
+      border-radius: 0;
+      text-decoration: none;
+      transition: background 0.13s, color 0.13s;
+      border: none;
+      outline: none;
+      margin: 0;
+    }
+    .main-nav ul li a.active,
+    .main-nav ul li a:active {
+      color: #00b3ff;
+      background: none;
+      font-weight: 700;
+      border-bottom: 2.5px solid #00b3ff;
+    }
+    .main-nav ul li a:hover {
+      color: #7fd1ff;
+      background: none;
+    }
     .menu-toggle {
       display: none;
       width: 100%;
@@ -97,7 +164,7 @@
       letter-spacing: 0.01em;
       transition: background 0.18s, color 0.18s, box-shadow 0.2s;
       outline: none;
-      margin: 18px 0 20px 0;
+      margin: 18px 0 10px 0;
       z-index: 120;
       position: relative;
       box-shadow: 0 1px 8px 0 rgba(70,136,255,0.08);
@@ -112,122 +179,59 @@
       outline: none;
       box-shadow: 0 0 0 2px #83c6fa85;
     }
-    nav.mobile-nav {
-      margin-bottom: 30px;
-      background: transparent;
-    }
-    nav.mobile-nav ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    nav.mobile-nav ul li {
-      margin: 0;
-      padding: 0;
-    }
-    nav.mobile-nav ul li a {
-      display: block;
-      font-size: 1.14em;
-      font-family: 'Rubik', sans-serif;
-      font-weight: 500;
-      color: #eaf6ff;
-      text-decoration: none;
-      padding: 0.82em 1.5em;
-      margin: 0 0 8px 0;
-      border-radius: 12px;
-      transition: background 0.15s, color 0.13s;
-      background: none;
-    }
-    nav.mobile-nav ul li a.active,
-    nav.mobile-nav ul li a:active {
-      background: linear-gradient(96deg, #a2dbfa 30%, #57aaff 100%);
-      color: #1d324e;
-      font-weight: 700;
-      box-shadow: 0 3px 12px 0 rgba(88,166,255,0.12);
-    }
-    nav.mobile-nav ul li a:hover {
-      background: rgba(80,150,255,0.12);
-      color: #57aaff;
-    }
     @media (max-width: 900px) {
-      .menu-toggle {
-        display: block;
-      }
-      nav.mobile-nav {
+      .main-nav {
+        margin: 0 0 20px 0;
+        max-width: 100%;
+        background: rgba(22, 27, 34, 0.98);
         border-radius: 0 0 18px 18px;
         box-shadow: 0 2px 18px 0 rgba(70,136,255,0.10);
-        position: static;
         display: none;
         opacity: 0;
         pointer-events: none;
         transform: translateY(-10px) scale(0.99);
         transition: opacity 0.22s, transform 0.22s;
         width: 100%;
-        max-width: 100%;
-        background: transparent;
+        z-index: 100;
       }
-      nav.mobile-nav.active {
+      .main-nav.active {
         display: block;
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0) scale(1);
       }
-      nav.mobile-nav ul {
-        display: flex;
+      .main-nav ul {
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 0.7em 0 0.5em 0;
+        padding: 0.6em 0 0.5em 0;
       }
-      nav.mobile-nav ul li {
+      .main-nav ul li {
         width: 100%;
-        text-align: left;
+        text-align: center;
+        margin: 0;
       }
-      nav.mobile-nav ul li a {
+      .main-nav ul li a {
+        font-size: 1.12em;
+        padding: 1em 0.5em;
+        margin: 0 16px;
         border-radius: 12px;
-        font-size: 1.14em;
-        padding: 0.90em 1.2em;
-        margin-bottom: 8px;
-        margin-left: 0;
-        margin-right: 0;
+        border-bottom: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-bottom: 0;
       }
     }
     @media (min-width: 901px) {
       .menu-toggle {
         display: none;
       }
-      nav.mobile-nav {
+      .main-nav {
         display: block !important;
         opacity: 1 !important;
         pointer-events: auto;
         transform: none !important;
-        max-width: 740px;
-        margin: 22px auto 30px auto;
-        border-radius: 18px;
-      }
-      nav.mobile-nav ul {
-        display: flex;
-        flex-direction: row;
-        gap: 0.6em;
-        padding: 0.5em 0 0.5em 0;
-        justify-content: center;
-        list-style: none;
-        margin: 0;
-      }
-      nav.mobile-nav ul li {
-        display: flex;
-        align-items: center;
-      }
-      nav.mobile-nav ul li a {
-        padding: 0.7em 1.2em;
-        color: #eaf6ff;
-        border-radius: 10px;
-        font-size: 1.13em;
-      }
-      nav.mobile-nav ul li a.active {
-        color: #222f45;
-        background: linear-gradient(96deg, #a2dbfa 30%, #57aaff 100%);
-        font-weight: 700;
       }
     }
     main {
@@ -270,37 +274,47 @@
       font-size: 1.08em;
       font-weight: 400;
     }
-    footer {
+    .full-width-footer {
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      position: relative;
+      background: rgba(24, 28, 36, 0.98);
       text-align: center;
       color: #bfc9d4;
       font-size: 1em;
       padding: 22px 0 16px 0;
       opacity: 0.82;
       letter-spacing: 0.03em;
+      box-shadow: 0 -2px 18px 0 rgba(20,40,70,0.09);
+      z-index: 10;
     }
   </style>
 </head>
 <body>
 
 <div id="particles-bg"></div>
-<div class="container">
-  <header>
-    <div class="header-content">
-      <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
-      <div class="header-title-block">
-        <h1>Dedicated VPN</h1>
-        <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
-      </div>
-      <div class="header-info">
-        <div id="current-date">--.--.--</div>
-        <div id="current-time">--:--:--</div>
-        <div id="btc-rate">BTC: --</div>
-      </div>
-    </div>
-    <button class="menu-toggle" aria-label="Открыть меню" id="menu-btn">☰ Меню</button>
-  </header>
 
-  <nav class="mobile-nav" id="main-nav">
+<header class="full-width-header">
+  <div class="header-content">
+    <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
+    <div class="header-title-block">
+      <h1>Dedicated VPN</h1>
+      <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+    </div>
+    <div class="header-info">
+      <div id="current-date">--.--.--</div>
+      <div id="current-time">--:--:--</div>
+      <div id="btc-rate">BTC: --</div>
+    </div>
+  </div>
+  <button class="menu-toggle" aria-label="Открыть меню" id="menu-btn">☰ Меню</button>
+</header>
+
+<div class="container">
+  <nav class="main-nav" id="main-nav">
     <ul>
       <li><a href="index.html">Главная</a></li>
       <li><a href="about_us.html">О нас</a></li>
@@ -310,7 +324,6 @@
       <li><a href="faq.html" class="active">FAQ / Часто задаваемые вопросы</a></li>
     </ul>
   </nav>
-
   <main>
     <section class="faq">
       <h2>Часто задаваемые вопросы</h2>
@@ -320,53 +333,45 @@
           <h3>Как работает VPN?</h3>
           <p>VPN (Virtual Private Network) создаёт зашифрованное соединение между вашим устройством и удалённым сервером, скрывая ваш IP-адрес.</p>
         </div>
-
         <div class="faq-item">
           <h3>Какие протоколы поддерживаются?</h3>
           <p>Мы поддерживаем Outline, Vless и Shadowsocks.</p>
         </div>
-
         <div class="faq-item">
           <h3>Можно ли использовать VPN на нескольких устройствах?</h3>
           <p>Да, один ключ может быть использован на пяти устройствах.</p>
         </div>
-
         <div class="faq-item">
           <h3>Как оплатить подписку?</h3>
           <p>Мы принимаем Visa/MasterCard, МИР, Telegram Stars, криптовалюту и электронные кошельки.</p>
         </div>
-
         <div class="faq-item">
           <h3>Как выбрать сервер VPN?</h3>
           <p>
-            Вы можете выбрать сервер для подключения в личном кабинете через Telegram-бот —
+            Вы можете выбрать сервер для подключения в личном кабинете через Telegram-бот — 
             <a href="https://t.me/dedicatedvpn_bot" target="_blank">@dedicatedvpn_bot</a>.
           </p>
         </div>
-        
         <div class="faq-item">
           <h3>Есть ли у вас политика возврата?</h3>
           <p>Да, мы предоставляем возврат средств в течение 7 дней при наличии технических проблем.</p>
         </div>
-
         <div class="faq-item">
           <h3>Какой уровень шифрования используется?</h3>
           <p>Мы используем шифрование AES-256 для защиты ваших данных.</p>
         </div>
-
         <div class="faq-item">
           <h3>Могу ли я использовать VPN для стриминга?</h3>
           <p>Да, наши серверы оптимизированы для работы с потоковыми сервисами.</p>
         </div>
-
       </div>
     </section>
   </main>
-
-  <footer>
-    <p>© 2025 Dedicated VPN. Все права защищены.</p>
-  </footer>
 </div>
+
+<footer class="full-width-footer">
+  <p>© 2025 Dedicated VPN. Все права защищены.</p>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
@@ -398,7 +403,7 @@
     "interactivity": {
       "detect_on": "canvas",
       "events": {
-        "onhover": { "enable": false, "mode": "repulse" },
+        "onhover": { "enable": false },
         "onclick": { "enable": false }
       }
     },

@@ -27,6 +27,18 @@
       margin: 0 auto;
       padding: 0 16px;
     }
+    .full-width-header {
+      width: 100vw;
+      background: rgba(24, 28, 36, 0.98); /* Исправленный фон */
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      box-sizing: border-box;
+      z-index: 10;
+      box-shadow: 0 2px 24px 0 rgba(20,40,70,0.13);
+    }
     .header-content {
       display: flex;
       align-items: flex-start;
@@ -37,6 +49,9 @@
       width: 100%;
       min-height: 7em;
       box-sizing: border-box;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
     }
     .header-title-block {
       display: flex;
@@ -83,30 +98,81 @@
       margin-top: 2px;
     }
 
-    /* Кнопка меню - улучшенная */
+    .main-nav {
+      margin: 26px auto 32px auto;
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      width: 100%;
+      max-width: 900px;
+      z-index: 3;
+      border-radius: 0;
+      position: relative;
+    }
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+    .main-nav ul li {
+      margin: 0;
+      padding: 0;
+    }
+    .main-nav ul li a {
+      display: inline-block;
+      color: #eaf6ff;
+      background: none;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 500;
+      font-size: 1.08em;
+      padding: 0.7em 1.5em;
+      border-radius: 0;
+      text-decoration: none;
+      transition: background 0.13s, color 0.13s;
+      border: none;
+      outline: none;
+      margin: 0;
+    }
+    .main-nav ul li a.active,
+    .main-nav ul li a:active {
+      color: #00b3ff;
+      background: none;
+      font-weight: 700;
+      border-bottom: 2.5px solid #00b3ff;
+    }
+    .main-nav ul li a:hover {
+      color: #7fd1ff;
+      background: none;
+    }
     .menu-toggle {
       display: none;
       width: 100%;
-      background: linear-gradient(94deg, rgba(107,197,255,0.85) 20%, rgba(45,152,255,0.87) 100%);
+      background: linear-gradient(96deg, #a2dbfa 30%, #57aaff 100%);
       color: #153047;
       border: none;
-      border-radius: 18px;
-      padding: 1em 0;
-      font-size: 1.14em;
+      border-radius: 16px;
+      padding: 1.1em 0;
+      font-size: 1.15em;
       cursor: pointer;
       font-family: 'Rubik', sans-serif;
       font-weight: 600;
       letter-spacing: 0.01em;
       transition: background 0.18s, color 0.18s, box-shadow 0.2s;
       outline: none;
-      margin: 22px 0 12px 0;
+      margin: 18px 0 10px 0;
       z-index: 120;
       position: relative;
       box-shadow: 0 1px 8px 0 rgba(70,136,255,0.08);
       backdrop-filter: blur(2px);
     }
     .menu-toggle:active, .menu-toggle.touched {
-      background: linear-gradient(94deg, #7bcfff 15%, #2893e6 100%);
+      background: linear-gradient(96deg, #7bcfff 15%, #2893e6 100%);
       color: #185c9c;
       box-shadow: 0 2px 8px 0 rgba(70,136,255,0.13);
     }
@@ -114,124 +180,78 @@
       outline: none;
       box-shadow: 0 0 0 2px #83c6fa85;
     }
-
-    nav {
-      background: rgba(22, 27, 34, 0.98);
-      box-shadow: 0 2px 24px 0 rgba(70, 136, 255, 0.07), 0 1.5px 10px 0 rgba(88,166,255,0.09);
-      border-radius: 0 0 18px 18px;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      max-width: 100%;
-      transition: box-shadow 0.25s;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6em;
-      margin: 0;
-      padding: 0.5em 0 0.5em 0;
-    }
-    nav ul li {
-      display: flex;
-      align-items: center;
-      border-radius: 12px;
-      transition: background 0.18s;
-    }
-    nav ul li a {
-      display: block;
-      padding: 0.7em 1.2em;
-      font-size: 1.08em;
-      color: #eaf6ff;
-      text-decoration: none;
-      font-family: 'Rubik', sans-serif;
-      font-weight: 500;
-      border-radius: 10px;
-      letter-spacing: 0.02em;
-      background: transparent;
-      transition: color 0.22s, background 0.22s, box-shadow 0.22s;
-      box-shadow: 0 0 0 0 transparent;
-    }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      color: #58a6ff;
-      background: rgba(88,166,255,0.09);
-      box-shadow: 0 2px 16px 0 rgba(88,166,255,0.09);
-      outline: none;
-    }
-    nav ul li a.active {
-      color: #222f45;
-      background: linear-gradient(96deg, #a2dbfa 30%, #57aaff 100%);
-      font-weight: 700;
-      box-shadow: 0 4px 24px 0 rgba(70, 136, 255, 0.13);
-      border-bottom: none;
-    }
-
-    /* --- Мобильная версия --- */
     @media (max-width: 900px) {
-      .container {
-        padding: 0 0px;
-      }
-      .menu-toggle {
-        display: block;
-        margin-bottom: 0;
-      }
-      nav {
+      .main-nav {
+        margin: 0 0 20px 0;
+        max-width: 100%;
+        background: rgba(22, 27, 34, 0.98);
         border-radius: 0 0 18px 18px;
         box-shadow: 0 2px 18px 0 rgba(70,136,255,0.10);
-        position: static;
-      }
-      nav {
         display: none;
         opacity: 0;
         pointer-events: none;
         transform: translateY(-10px) scale(0.99);
         transition: opacity 0.22s, transform 0.22s;
+        width: 100%;
+        z-index: 100;
       }
-      nav.active {
+      .main-nav.active {
         display: block;
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0) scale(1);
       }
-      nav ul {
+      .main-nav ul {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.25em;
-        padding: 0.7em 0 0.5em 0;
+        gap: 0;
+        padding: 0.6em 0 0.5em 0;
       }
-      nav ul li {
+      .main-nav ul li {
         width: 100%;
         text-align: center;
+        margin: 0;
       }
-      nav ul li a {
+      .main-nav ul li a {
+        font-size: 1.12em;
+        padding: 1em 0.5em;
+        margin: 0 16px;
         border-radius: 12px;
-        font-size: 1.08em;
-        padding: 0.95em 0.7em;
-        margin-bottom: 2px;
+        border-bottom: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-bottom: 0;
       }
     }
     @media (min-width: 901px) {
       .menu-toggle {
         display: none;
       }
-      nav {
+      .main-nav {
         display: block !important;
         opacity: 1 !important;
         pointer-events: auto;
         transform: none !important;
-        max-width: 740px;
-        margin: 22px auto 0 auto;
-        border-radius: 18px;
-        width: 100%;
       }
-      nav ul {
-        flex-direction: row;
-        gap: 0.6em;
-        padding: 0.5em 0 0.5em 0;
-      }
+    }
+
+    .full-width-footer {
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      position: relative;
+      background: rgba(24, 28, 36, 0.98); /* Исправленный фон */
+      text-align: center;
+      color: #bfc9d4;
+      font-size: 1em;
+      padding: 22px 0 16px 0;
+      opacity: 0.82;
+      letter-spacing: 0.03em;
+      box-shadow: 0 -2px 18px 0 rgba(20,40,70,0.09);
+      z-index: 10;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -241,27 +261,28 @@
 <!-- Фоновая анимация -->
 <div id="particles-bg"></div>
 
+<!-- header теперь вне container -->
+<header class="full-width-header">
+  <div class="header-content">
+    <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
+    <div class="header-title-block">
+      <h1>Dedicated VPN</h1>
+      <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
+    </div>
+    <div class="header-info">
+      <div id="current-date">--.--.--</div>
+      <div id="current-time">--:--:--</div>
+      <div id="btc-rate">BTC: --</div>
+    </div>
+  </div>
+  <!-- Кнопка меню только на мобильных -->
+  <button class="menu-toggle" aria-label="Открыть меню" id="menu-btn">☰ Меню</button>
+</header>
+
 <div class="container">
 
-  <header>
-    <div class="header-content">
-      <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
-      <div class="header-title-block">
-        <h1>Dedicated VPN</h1>
-        <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
-      </div>
-      <div class="header-info">
-        <div id="current-date">--.--.--</div>
-        <div id="current-time">--:--:--</div>
-        <div id="btc-rate">BTC: --</div>
-      </div>
-    </div>
-    <!-- Кнопка меню ПОД шапкой (внутри header!) -->
-    <button class="menu-toggle" aria-label="Открыть меню" id="menu-btn">☰ Меню</button>
-  </header>
-
-  <!-- Меню -->
-  <nav id="main-nav">
+  <!-- Главное меню: в строку на десктопе -->
+  <nav class="main-nav" id="main-nav">
     <ul>
       <li><a href="index.html" class="active">Главная</a></li>
       <li><a href="about_us.html">О нас</a></li>
@@ -326,11 +347,11 @@
       </div>
     </section>
   </main>
-
-  <footer>
-    <p>© 2025 Dedicated VPN. Все права защищены.</p>
-  </footer>
 </div>
+
+<footer class="full-width-footer">
+  <p>© 2025 Dedicated VPN. Все права защищены.</p>
+</footer>
 
 <script>
   // particles.js background (not interactive)
@@ -396,7 +417,7 @@
   setInterval(updateBTC, 180000);
   updateBTC();
 
-  // Мобильное меню + сброс выделения кнопки после открытия
+  // Мобильное меню
   const toggleButton = document.getElementById('menu-btn');
   const nav = document.getElementById('main-nav');
   toggleButton.addEventListener('click', () => {
@@ -404,16 +425,12 @@
     toggleButton.blur();
     toggleButton.classList.remove('touched');
   });
-
-  // Для имитации :active на мобильных (снимает выделение после тап)
   toggleButton.addEventListener('touchstart', function() {
     toggleButton.classList.add('touched');
   });
   toggleButton.addEventListener('touchend', function() {
     setTimeout(() => toggleButton.classList.remove('touched'), 200);
   });
-
-  // При клике по ссылке меню на мобильных — скрыть меню
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 900) {
@@ -422,6 +439,5 @@
     });
   });
 </script>
-
 </body>
 </html>
