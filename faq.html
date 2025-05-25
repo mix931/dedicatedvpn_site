@@ -8,6 +8,15 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <style>
+    #particles-bg {
+      position: fixed;
+      z-index: 0;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
     .menu-toggle {
       display: none;
       background-color: #21262d;
@@ -59,8 +68,12 @@
       }
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
+
+<!-- Фоновая анимация -->
+<div id="particles-bg"></div>
 
 <header>
   <div class="header-content">
@@ -142,6 +155,42 @@
 </footer>
 
 <script>
+  // particles.js: неинтерактивный фон
+  particlesJS("particles-bg", {
+    "particles": {
+      "number": { "value": 80, "density": { "enable": true, "value_area": 900 } },
+      "color": { "value": "#ffffff" },
+      "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000" } },
+      "opacity": { "value": 0.22, "random": true },
+      "size": { "value": 3, "random": true },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.12,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 1.1,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": false, "mode": "repulse" },
+        "onclick": { "enable": false }
+      }
+    },
+    "retina_detect": true
+  });
+
+  // Унифицированный скрипт управления меню
   const toggleButton = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.mobile-nav');
   

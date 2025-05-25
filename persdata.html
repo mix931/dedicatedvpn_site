@@ -8,6 +8,15 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <style>
+    #particles-bg {
+      position: fixed;
+      z-index: 0;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
     .menu-toggle {
       display: none;
       background-color: #21262d;
@@ -19,25 +28,20 @@
       cursor: pointer;
       margin: 10px auto 0;
     }
-
     nav.mobile-nav {
       display: none;
       background-color: #161b22;
     }
-
     nav.mobile-nav.active {
       display: block;
     }
-
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
-
       nav.desktop-nav {
         display: none;
       }
-
       nav.mobile-nav ul {
         list-style: none;
         padding: 0;
@@ -47,23 +51,24 @@
         align-items: center;
         gap: 1em;
       }
-
       nav.mobile-nav ul li a {
         color: #c9d1d9;
         font-weight: bold;
         text-decoration: none;
       }
-
       nav.mobile-nav ul li a:hover {
         color: #58a6ff;
       }
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
 
+<!-- Фоновая анимация -->
+<div id="particles-bg"></div>
+
 <header>
-  <!-- Добавлен логотип -->
   <div class="header-content">
     <img src="favicon.png" alt="Логотип Dedicated VPN" class="logo">
     <div>
@@ -71,8 +76,6 @@
       <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
     </div>
   </div>
-
-  <!-- Обновленная кнопка меню -->
   <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
 
@@ -89,20 +92,17 @@
 
 <main>
   <h1>Обработка персональных данных</h1>
-  
   <p>
     Регистрируясь и используя сервис <strong>Dedicated VPN</strong>, вы подтверждаете своё 
     согласие на обработку персональных данных в соответствии с действующим законодательством 
     и положениями настоящего документа.
   </p>
-
   <h2>Состав персональных данных</h2>
   <p>
     Мы можем запрашивать только ту информацию, которая нужна для регистрации и оплаты 
     (адрес электронной почты). Также возможен сбор технических данных 
     (IP-адрес, информация об устройстве) для корректной работы сервиса.
   </p>
-
   <h2>Цели обработки</h2>
   <ul>
     <li>Предоставление услуг VPN-доступа.</li>
@@ -110,7 +110,6 @@
     <li>Поддержка и улучшение работы сервиса.</li>
     <li>Информирование о новостях и акциях (при вашем согласии).</li>
   </ul>
-
   <h2>Отзыв согласия</h2>
   <p>
     Вы можете отозвать согласие на обработку персональных данных, отправив запрос в наш 
@@ -118,7 +117,6 @@
     или связавшись с поддержкой другим удобным способом. В случае отзыва согласия 
     предоставление услуг может быть приостановлено.
   </p>
-
   <div class="back-button">
     <a href="index.html" class="button">← На главную</a>
   </div>
@@ -129,10 +127,44 @@
 </footer>
 
 <script>
+  // particles.js: network-animated background, НЕ интерактивный
+  particlesJS("particles-bg", {
+    "particles": {
+      "number": { "value": 80, "density": { "enable": true, "value_area": 900 } },
+      "color": { "value": "#ffffff" },
+      "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000" } },
+      "opacity": { "value": 0.22, "random": true },
+      "size": { "value": 3, "random": true },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.12,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 1.1,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": false, "mode": "repulse" },
+        "onclick": { "enable": false }
+      }
+    },
+    "retina_detect": true
+  });
+
   // Унифицированный скрипт управления меню
   const toggleButton = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.mobile-nav');
-  
   toggleButton.addEventListener('click', () => {
     nav.classList.toggle('active');
   });

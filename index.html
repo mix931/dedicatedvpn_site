@@ -8,6 +8,17 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <style>
+    #particles-bg {
+      position: fixed;
+      z-index: 0;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+
+    /* остальной твой CSS */
     .menu-toggle {
       display: none;
       margin: 10px auto;
@@ -24,23 +35,25 @@
       display: none;
       background-color: #161b22;
     }
-
     nav.mobile-nav.active {
       display: block;
     }
-
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
-
       nav.desktop-nav {
         display: none;
       }
     }
   </style>
+  <!-- particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
+
+<!-- Фоновая анимация -->
+<div id="particles-bg"></div>
 
 <header>
   <div class="header-content">
@@ -50,7 +63,6 @@
       <p class="header-subtitle">Безопасный, анонимный и быстрый доступ в интернет</p>
     </div>
   </div>
-
   <!-- Кнопка "Открыть меню" для мобильных -->
   <button class="menu-toggle" aria-label="Открыть меню">☰ Меню</button>
 </header>
@@ -75,7 +87,6 @@
       <a href="https://t.me/dedicatedvpn_news" class="button secondary">Новости сервиса</a>
     </div>
   </section>
-
   <section class="features">
     <h2>Преимущества Dedicated VPN</h2>
     <div class="feature-list">
@@ -105,20 +116,16 @@
       </div>
     </div>
   </section>
-
   <section class="faq">
     <h2>Часто задаваемые вопросы</h2>
-
     <div class="faq-item">
       <h3>Как работает VPN?</h3>
       <p>VPN шифрует ваш интернет-трафик и скрывает ваш IP-адрес, обеспечивая анонимность и безопасность для Вас и Ваших данных.</p>
     </div>
-
     <div class="faq-item">
       <h3>Как купить подписку?</h3>
       <p>Перейдите в наш <a href="https://t.me/dedicatedvpn_bot">Telegram-бот</a> и опробуйте сервис. 3 дня бесплатно.</p>
     </div>
-
     <div class="faq-item">
       <h3>Какие устройства поддерживаются?</h3>
       <p>Вы можете подключить VPN на Windows, Mac, Android, iOS, а также маршрутизаторах.</p>
@@ -131,9 +138,44 @@
 </footer>
 
 <script>
+  // particles.js background (not interactive)
+  particlesJS("particles-bg", {
+    "particles": {
+      "number": { "value": 80, "density": { "enable": true, "value_area": 900 } },
+      "color": { "value": "#ffffff" },
+      "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000" } },
+      "opacity": { "value": 0.22, "random": true },
+      "size": { "value": 3, "random": true },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.12,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 1.1,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": false, "mode": "repulse" },
+        "onclick": { "enable": false }
+      }
+    },
+    "retina_detect": true
+  });
+
+  // Меню (без изменений)
   const toggleButton = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.mobile-nav');
-
   toggleButton.addEventListener('click', () => {
     nav.classList.toggle('active');
   });
