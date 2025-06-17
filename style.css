@@ -114,13 +114,15 @@ header {
   padding: 10px 16px;
   font-size: 16px;
   cursor: pointer;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 8px;
+
+  /* Убрать абсолютное позиционирование — это мешает потоку документа */
+  position: static;
+  margin: 16px auto 12px auto; /* отступ сверху и снизу, центрирование по горизонтали */
+
   z-index: 1000;
+  text-align: center;
 }
+
 
 /* ===== НАВИГАЦИЯ ===== */
 nav {
