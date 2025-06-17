@@ -29,7 +29,7 @@ header {
 }
 .header-content {
   display: flex;
-  align-items: center;        /* ИСПРАВЛЕНО: теперь по центру по высоте */
+  align-items: center;
   justify-content: flex-start;
   gap: 14px;
   width: 100%;
@@ -104,7 +104,7 @@ header {
   margin-top: 2px;
 }
 
-/* ===== ГАМБУРГЕР ===== */
+/* ===== КНОПКА МЕНЮ (ГАМБУРГЕР) ===== */
 .menu-toggle {
   display: none;
   background: #21262d;
@@ -114,22 +114,16 @@ header {
   padding: 10px 16px;
   font-size: 16px;
   cursor: pointer;
-
-  /* Убрать абсолютное позиционирование — это мешает потоку документа */
-  position: static;
-  margin: 16px auto 12px auto; /* отступ сверху и снизу, центрирование по горизонтали */
-
+  position: relative;
+  margin: 16px auto 12px auto;
   z-index: 1000;
   text-align: center;
 }
-
 
 /* ===== НАВИГАЦИЯ ===== */
 nav {
   background: #161b22;
   padding: 0.7em 1em;
-  position: sticky;
-  top: 0;
   z-index: 10;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
