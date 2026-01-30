@@ -19,4 +19,4 @@ DedicatedVPN – это статический сайт-визитка, пред
 ## Контакты
 Если у вас есть вопросы, напишите в наш Telegram-канал: [@dedicatedvpn_news](https://t.me/dedicatedvpn_news).
 
-© 2025 DedicatedVPN. Все права защищены.
+© 2026 DedicatedVPN. Все права защищены.
